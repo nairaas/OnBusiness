@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5436E4721681C5A400D6339C /* ATAPILogoutOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5436E4701681C5A200D6339C /* ATAPILogoutOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5436E4731681C5A400D6339C /* ATAPILogoutOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5436E4711681C5A300D6339C /* ATAPILogoutOperation.m */; };
+		5482D56915B4411A009B101F /* ATAPIReportOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5482D56715B4411A009B101F /* ATAPIReportOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5482D56A15B4411A009B101F /* ATAPIReportOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5482D56815B4411A009B101F /* ATAPIReportOperation.m */; };
+		54991D8715CAA52000EEA7F7 /* ATAPIBatchOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 54991D8515CAA52000EEA7F7 /* ATAPIBatchOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54991D8815CAA52000EEA7F7 /* ATAPIBatchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 54991D8615CAA52000EEA7F7 /* ATAPIBatchOperation.m */; };
+		549C2DA415C9561700F36F3E /* ATAPICreateObjectOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 549C2DA215C9561600F36F3E /* ATAPICreateObjectOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		549C2DA515C9561700F36F3E /* ATAPICreateObjectOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C2DA315C9561700F36F3E /* ATAPICreateObjectOperation.m */; };
+		549C2DA915C96C5400F36F3E /* ATAPIDeleteObjectOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 549C2DA715C96C5300F36F3E /* ATAPIDeleteObjectOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		549C2DAA15C96C5400F36F3E /* ATAPIDeleteObjectOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C2DA815C96C5400F36F3E /* ATAPIDeleteObjectOperation.m */; };
+		93974F281669005D00F302BC /* ATDataDownloadingOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 93974F261669005D00F302BC /* ATDataDownloadingOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93974F291669005D00F302BC /* ATDataDownloadingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93974F271669005D00F302BC /* ATDataDownloadingOperation.m */; };
+		93A24B0C15E6348E00D63044 /* ATAPIUpdateObjectOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A24B0A15E6348E00D63044 /* ATAPIUpdateObjectOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93A24B0D15E6348E00D63044 /* ATAPIUpdateObjectOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A24B0B15E6348E00D63044 /* ATAPIUpdateObjectOperation.m */; };
+		93B51CDC156FCD5500698D95 /* ATAvatarLoadingOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B51CDA156FCD5500698D95 /* ATAvatarLoadingOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93B51CDD156FCD5500698D95 /* ATAvatarLoadingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B51CDB156FCD5500698D95 /* ATAvatarLoadingOperation.m */; };
+		93BDED1F15E75CDD001D6F1F /* ATDataParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BDED1D15E75CDD001D6F1F /* ATDataParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93BDED2015E75CDD001D6F1F /* ATDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BDED1E15E75CDD001D6F1F /* ATDataParser.m */; };
+		93BDF132151A173900F78E88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BDF131151A173900F78E88 /* Foundation.framework */; };
+		93BDF140151A173900F78E88 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BDF13F151A173900F78E88 /* SenTestingKit.framework */; };
+		93BDF142151A173900F78E88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BDF141151A173900F78E88 /* UIKit.framework */; };
+		93BDF143151A173900F78E88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BDF131151A173900F78E88 /* Foundation.framework */; };
+		93BDF146151A173900F78E88 /* libAtTaskConnector.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BDF12E151A173900F78E88 /* libAtTaskConnector.a */; };
+		93BDF14C151A173900F78E88 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93BDF14A151A173900F78E88 /* InfoPlist.strings */; };
+		93BDF14F151A173900F78E88 /* AtTaskConnectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF14E151A173900F78E88 /* AtTaskConnectorTests.m */; };
+		93BDF16D151A1C7D00F78E88 /* ATConnectorErrorConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BDF158151A1C7D00F78E88 /* ATConnectorErrorConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93BDF16E151A1C7D00F78E88 /* ATNetworkOperationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BDF159151A1C7D00F78E88 /* ATNetworkOperationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93BDF16F151A1C7D00F78E88 /* ATNetworkOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF15A151A1C7D00F78E88 /* ATNetworkOperationManager.m */; };
+		93BDF170151A1C7D00F78E88 /* NSMutableString+AtTaskConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BDF15C151A1C7D00F78E88 /* NSMutableString+AtTaskConnector.h */; };
+		93BDF171151A1C7D00F78E88 /* NSMutableString+AtTaskConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF15D151A1C7D00F78E88 /* NSMutableString+AtTaskConnector.m */; };
+		93BDF172151A1C7D00F78E88 /* ATAPIGetByIDOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BDF15F151A1C7D00F78E88 /* ATAPIGetByIDOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93BDF173151A1C7D00F78E88 /* ATAPIGetByIDOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF160151A1C7D00F78E88 /* ATAPIGetByIDOperation.m */; };
+		93BDF174151A1C7D00F78E88 /* ATAPILoginOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BDF161151A1C7D00F78E88 /* ATAPILoginOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93BDF175151A1C7D00F78E88 /* ATAPILoginOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF162151A1C7D00F78E88 /* ATAPILoginOperation.m */; };
+		93BDF176151A1C7D00F78E88 /* ATAPIObjectOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BDF163151A1C7D00F78E88 /* ATAPIObjectOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93BDF177151A1C7D00F78E88 /* ATAPIObjectOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF164151A1C7D00F78E88 /* ATAPIObjectOperation.m */; };
+		93BDF178151A1C7D00F78E88 /* ATAPIOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BDF165151A1C7D00F78E88 /* ATAPIOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93BDF179151A1C7D00F78E88 /* ATAPIOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF166151A1C7D00F78E88 /* ATAPIOperation.m */; };
+		93BDF17A151A1C7D00F78E88 /* ATAPISearchOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BDF167151A1C7D00F78E88 /* ATAPISearchOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93BDF17B151A1C7D00F78E88 /* ATAPISearchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF168151A1C7D00F78E88 /* ATAPISearchOperation.m */; };
+		93BDF17C151A1C7D00F78E88 /* ATNetworkOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BDF169151A1C7D00F78E88 /* ATNetworkOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93BDF17D151A1C7D00F78E88 /* ATNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF16A151A1C7D00F78E88 /* ATNetworkOperation.m */; };
+		93BDF17E151A1C7D00F78E88 /* ATOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BDF16B151A1C7D00F78E88 /* ATOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93BDF17F151A1C7D00F78E88 /* ATOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF16C151A1C7D00F78E88 /* ATOperation.m */; };
+		93BDF180151A1F9C00F78E88 /* AtTaskConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BDF136151A173900F78E88 /* AtTaskConnector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93BDF263151B480E00F78E88 /* ATNetworkOperationManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF25E151B480E00F78E88 /* ATNetworkOperationManagerTests.m */; };
+		93BDF264151B480E00F78E88 /* ATOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF260151B480E00F78E88 /* ATOperationTests.m */; };
+		93BDF265151B480E00F78E88 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BDF262151B480E00F78E88 /* OCMock.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		93BDF144151A173900F78E88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93BDF125151A173900F78E88 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93BDF12D151A173900F78E88;
+			remoteInfo = AtTaskConnector;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5436E4701681C5A200D6339C /* ATAPILogoutOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAPILogoutOperation.h; sourceTree = "<group>"; };
+		5436E4711681C5A300D6339C /* ATAPILogoutOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAPILogoutOperation.m; sourceTree = "<group>"; };
+		5482D56715B4411A009B101F /* ATAPIReportOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAPIReportOperation.h; sourceTree = "<group>"; };
+		5482D56815B4411A009B101F /* ATAPIReportOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAPIReportOperation.m; sourceTree = "<group>"; };
+		54991D8515CAA52000EEA7F7 /* ATAPIBatchOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAPIBatchOperation.h; sourceTree = "<group>"; };
+		54991D8615CAA52000EEA7F7 /* ATAPIBatchOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAPIBatchOperation.m; sourceTree = "<group>"; };
+		549C2DA215C9561600F36F3E /* ATAPICreateObjectOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAPICreateObjectOperation.h; sourceTree = "<group>"; };
+		549C2DA315C9561700F36F3E /* ATAPICreateObjectOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAPICreateObjectOperation.m; sourceTree = "<group>"; };
+		549C2DA715C96C5300F36F3E /* ATAPIDeleteObjectOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAPIDeleteObjectOperation.h; sourceTree = "<group>"; };
+		549C2DA815C96C5400F36F3E /* ATAPIDeleteObjectOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAPIDeleteObjectOperation.m; sourceTree = "<group>"; };
+		93974F261669005D00F302BC /* ATDataDownloadingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDataDownloadingOperation.h; sourceTree = "<group>"; };
+		93974F271669005D00F302BC /* ATDataDownloadingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDataDownloadingOperation.m; sourceTree = "<group>"; };
+		93A24B0A15E6348E00D63044 /* ATAPIUpdateObjectOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAPIUpdateObjectOperation.h; sourceTree = "<group>"; };
+		93A24B0B15E6348E00D63044 /* ATAPIUpdateObjectOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAPIUpdateObjectOperation.m; sourceTree = "<group>"; };
+		93B51CDA156FCD5500698D95 /* ATAvatarLoadingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAvatarLoadingOperation.h; sourceTree = "<group>"; };
+		93B51CDB156FCD5500698D95 /* ATAvatarLoadingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAvatarLoadingOperation.m; sourceTree = "<group>"; };
+		93BDED1D15E75CDD001D6F1F /* ATDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDataParser.h; sourceTree = "<group>"; };
+		93BDED1E15E75CDD001D6F1F /* ATDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDataParser.m; sourceTree = "<group>"; };
+		93BDF12E151A173900F78E88 /* libAtTaskConnector.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAtTaskConnector.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		93BDF131151A173900F78E88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		93BDF135151A173900F78E88 /* AtTaskConnector-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AtTaskConnector-Prefix.pch"; sourceTree = "<group>"; };
+		93BDF136151A173900F78E88 /* AtTaskConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AtTaskConnector.h; sourceTree = "<group>"; };
+		93BDF13E151A173900F78E88 /* AtTaskConnectorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtTaskConnectorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93BDF13F151A173900F78E88 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		93BDF141151A173900F78E88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		93BDF149151A173900F78E88 /* AtTaskConnectorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AtTaskConnectorTests-Info.plist"; sourceTree = "<group>"; };
+		93BDF14B151A173900F78E88 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		93BDF14D151A173900F78E88 /* AtTaskConnectorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AtTaskConnectorTests.h; sourceTree = "<group>"; };
+		93BDF14E151A173900F78E88 /* AtTaskConnectorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AtTaskConnectorTests.m; sourceTree = "<group>"; };
+		93BDF158151A1C7D00F78E88 /* ATConnectorErrorConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATConnectorErrorConstants.h; sourceTree = "<group>"; };
+		93BDF159151A1C7D00F78E88 /* ATNetworkOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATNetworkOperationManager.h; sourceTree = "<group>"; };
+		93BDF15A151A1C7D00F78E88 /* ATNetworkOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATNetworkOperationManager.m; sourceTree = "<group>"; };
+		93BDF15C151A1C7D00F78E88 /* NSMutableString+AtTaskConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+AtTaskConnector.h"; sourceTree = "<group>"; };
+		93BDF15D151A1C7D00F78E88 /* NSMutableString+AtTaskConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+AtTaskConnector.m"; sourceTree = "<group>"; };
+		93BDF15F151A1C7D00F78E88 /* ATAPIGetByIDOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAPIGetByIDOperation.h; sourceTree = "<group>"; };
+		93BDF160151A1C7D00F78E88 /* ATAPIGetByIDOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAPIGetByIDOperation.m; sourceTree = "<group>"; };
+		93BDF161151A1C7D00F78E88 /* ATAPILoginOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAPILoginOperation.h; sourceTree = "<group>"; };
+		93BDF162151A1C7D00F78E88 /* ATAPILoginOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAPILoginOperation.m; sourceTree = "<group>"; };
+		93BDF163151A1C7D00F78E88 /* ATAPIObjectOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAPIObjectOperation.h; sourceTree = "<group>"; };
+		93BDF164151A1C7D00F78E88 /* ATAPIObjectOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAPIObjectOperation.m; sourceTree = "<group>"; };
+		93BDF165151A1C7D00F78E88 /* ATAPIOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAPIOperation.h; sourceTree = "<group>"; };
+		93BDF166151A1C7D00F78E88 /* ATAPIOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAPIOperation.m; sourceTree = "<group>"; };
+		93BDF167151A1C7D00F78E88 /* ATAPISearchOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAPISearchOperation.h; sourceTree = "<group>"; };
+		93BDF168151A1C7D00F78E88 /* ATAPISearchOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAPISearchOperation.m; sourceTree = "<group>"; };
+		93BDF169151A1C7D00F78E88 /* ATNetworkOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATNetworkOperation.h; sourceTree = "<group>"; };
+		93BDF16A151A1C7D00F78E88 /* ATNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATNetworkOperation.m; sourceTree = "<group>"; };
+		93BDF16B151A1C7D00F78E88 /* ATOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATOperation.h; sourceTree = "<group>"; };
+		93BDF16C151A1C7D00F78E88 /* ATOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATOperation.m; sourceTree = "<group>"; };
+		93BDF25D151B480E00F78E88 /* ATNetworkOperationManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATNetworkOperationManagerTests.h; sourceTree = "<group>"; };
+		93BDF25E151B480E00F78E88 /* ATNetworkOperationManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATNetworkOperationManagerTests.m; sourceTree = "<group>"; };
+		93BDF25F151B480E00F78E88 /* ATOperationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATOperationTests.h; sourceTree = "<group>"; };
+		93BDF260151B480E00F78E88 /* ATOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATOperationTests.m; sourceTree = "<group>"; };
+		93BDF262151B480E00F78E88 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMock.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93BDF12B151A173900F78E88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93BDF132151A173900F78E88 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93BDF13A151A173900F78E88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93BDF140151A173900F78E88 /* SenTestingKit.framework in Frameworks */,
+				93BDF142151A173900F78E88 /* UIKit.framework in Frameworks */,
+				93BDF143151A173900F78E88 /* Foundation.framework in Frameworks */,
+				93BDF146151A173900F78E88 /* libAtTaskConnector.a in Frameworks */,
+				93BDF265151B480E00F78E88 /* OCMock.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		93BDF123151A173900F78E88 = {
+			isa = PBXGroup;
+			children = (
+				93BDF133151A173900F78E88 /* AtTaskConnector */,
+				93BDF147151A173900F78E88 /* AtTaskConnectorTests */,
+				93BDF130151A173900F78E88 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		93BDF12F151A173900F78E88 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93BDF12E151A173900F78E88 /* libAtTaskConnector.a */,
+				93BDF13E151A173900F78E88 /* AtTaskConnectorTests.octest */,
+			);
+			name = Products;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		93BDF130151A173900F78E88 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93BDF131151A173900F78E88 /* Foundation.framework */,
+				93BDF13F151A173900F78E88 /* SenTestingKit.framework */,
+				93BDF141151A173900F78E88 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		93BDF133151A173900F78E88 /* AtTaskConnector */ = {
+			isa = PBXGroup;
+			children = (
+				93BDF136151A173900F78E88 /* AtTaskConnector.h */,
+				93BDF158151A1C7D00F78E88 /* ATConnectorErrorConstants.h */,
+				93BDF159151A1C7D00F78E88 /* ATNetworkOperationManager.h */,
+				93BDF15A151A1C7D00F78E88 /* ATNetworkOperationManager.m */,
+				93BDED1D15E75CDD001D6F1F /* ATDataParser.h */,
+				93BDED1E15E75CDD001D6F1F /* ATDataParser.m */,
+				93BDF15E151A1C7D00F78E88 /* Operation */,
+				93BDF15B151A1C7D00F78E88 /* Category */,
+			);
+			path = AtTaskConnector;
+			sourceTree = "<group>";
+		};
+		93BDF134151A173900F78E88 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				93BDF12F151A173900F78E88 /* Products */,
+				93BDF135151A173900F78E88 /* AtTaskConnector-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		93BDF147151A173900F78E88 /* AtTaskConnectorTests */ = {
+			isa = PBXGroup;
+			children = (
+				93BDF25D151B480E00F78E88 /* ATNetworkOperationManagerTests.h */,
+				93BDF25E151B480E00F78E88 /* ATNetworkOperationManagerTests.m */,
+				93BDF25F151B480E00F78E88 /* ATOperationTests.h */,
+				93BDF260151B480E00F78E88 /* ATOperationTests.m */,
+				93BDF261151B480E00F78E88 /* External */,
+				93BDF14D151A173900F78E88 /* AtTaskConnectorTests.h */,
+				93BDF14E151A173900F78E88 /* AtTaskConnectorTests.m */,
+				93BDF148151A173900F78E88 /* Supporting Files */,
+			);
+			path = AtTaskConnectorTests;
+			sourceTree = "<group>";
+		};
+		93BDF148151A173900F78E88 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				93BDF149151A173900F78E88 /* AtTaskConnectorTests-Info.plist */,
+				93BDF14A151A173900F78E88 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		93BDF15B151A1C7D00F78E88 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				93BDF15C151A1C7D00F78E88 /* NSMutableString+AtTaskConnector.h */,
+				93BDF15D151A1C7D00F78E88 /* NSMutableString+AtTaskConnector.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		93BDF15E151A1C7D00F78E88 /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				93BDF16B151A1C7D00F78E88 /* ATOperation.h */,
+				93BDF16C151A1C7D00F78E88 /* ATOperation.m */,
+				93BDF169151A1C7D00F78E88 /* ATNetworkOperation.h */,
+				93BDF16A151A1C7D00F78E88 /* ATNetworkOperation.m */,
+				93B51CDA156FCD5500698D95 /* ATAvatarLoadingOperation.h */,
+				93B51CDB156FCD5500698D95 /* ATAvatarLoadingOperation.m */,
+				93974F261669005D00F302BC /* ATDataDownloadingOperation.h */,
+				93974F271669005D00F302BC /* ATDataDownloadingOperation.m */,
+				93BDF165151A1C7D00F78E88 /* ATAPIOperation.h */,
+				93BDF166151A1C7D00F78E88 /* ATAPIOperation.m */,
+				93BDF161151A1C7D00F78E88 /* ATAPILoginOperation.h */,
+				93BDF162151A1C7D00F78E88 /* ATAPILoginOperation.m */,
+				5436E4701681C5A200D6339C /* ATAPILogoutOperation.h */,
+				5436E4711681C5A300D6339C /* ATAPILogoutOperation.m */,
+				54991D8515CAA52000EEA7F7 /* ATAPIBatchOperation.h */,
+				54991D8615CAA52000EEA7F7 /* ATAPIBatchOperation.m */,
+				93BDF163151A1C7D00F78E88 /* ATAPIObjectOperation.h */,
+				93BDF164151A1C7D00F78E88 /* ATAPIObjectOperation.m */,
+				93BDF167151A1C7D00F78E88 /* ATAPISearchOperation.h */,
+				93BDF168151A1C7D00F78E88 /* ATAPISearchOperation.m */,
+				5482D56715B4411A009B101F /* ATAPIReportOperation.h */,
+				5482D56815B4411A009B101F /* ATAPIReportOperation.m */,
+				93BDF15F151A1C7D00F78E88 /* ATAPIGetByIDOperation.h */,
+				93BDF160151A1C7D00F78E88 /* ATAPIGetByIDOperation.m */,
+				549C2DA215C9561600F36F3E /* ATAPICreateObjectOperation.h */,
+				549C2DA315C9561700F36F3E /* ATAPICreateObjectOperation.m */,
+				93A24B0A15E6348E00D63044 /* ATAPIUpdateObjectOperation.h */,
+				93A24B0B15E6348E00D63044 /* ATAPIUpdateObjectOperation.m */,
+				549C2DA715C96C5300F36F3E /* ATAPIDeleteObjectOperation.h */,
+				549C2DA815C96C5400F36F3E /* ATAPIDeleteObjectOperation.m */,
+				93BDF134151A173900F78E88 /* Supporting Files */,
+			);
+			path = Operation;
+			sourceTree = "<group>";
+		};
+		93BDF261151B480E00F78E88 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				93BDF262151B480E00F78E88 /* OCMock.framework */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		93BDF12C151A173900F78E88 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93BDF180151A1F9C00F78E88 /* AtTaskConnector.h in Headers */,
+				93BDF16D151A1C7D00F78E88 /* ATConnectorErrorConstants.h in Headers */,
+				93BDF16E151A1C7D00F78E88 /* ATNetworkOperationManager.h in Headers */,
+				93BDF174151A1C7D00F78E88 /* ATAPILoginOperation.h in Headers */,
+				93BDF176151A1C7D00F78E88 /* ATAPIObjectOperation.h in Headers */,
+				93BDF17E151A1C7D00F78E88 /* ATOperation.h in Headers */,
+				93BDF178151A1C7D00F78E88 /* ATAPIOperation.h in Headers */,
+				93BDF172151A1C7D00F78E88 /* ATAPIGetByIDOperation.h in Headers */,
+				93BDF17C151A1C7D00F78E88 /* ATNetworkOperation.h in Headers */,
+				93BDF17A151A1C7D00F78E88 /* ATAPISearchOperation.h in Headers */,
+				93BDF170151A1C7D00F78E88 /* NSMutableString+AtTaskConnector.h in Headers */,
+				93B51CDC156FCD5500698D95 /* ATAvatarLoadingOperation.h in Headers */,
+				5482D56915B4411A009B101F /* ATAPIReportOperation.h in Headers */,
+				549C2DA415C9561700F36F3E /* ATAPICreateObjectOperation.h in Headers */,
+				549C2DA915C96C5400F36F3E /* ATAPIDeleteObjectOperation.h in Headers */,
+				54991D8715CAA52000EEA7F7 /* ATAPIBatchOperation.h in Headers */,
+				93A24B0C15E6348E00D63044 /* ATAPIUpdateObjectOperation.h in Headers */,
+				93BDED1F15E75CDD001D6F1F /* ATDataParser.h in Headers */,
+				93974F281669005D00F302BC /* ATDataDownloadingOperation.h in Headers */,
+				5436E4721681C5A400D6339C /* ATAPILogoutOperation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		93BDF12D151A173900F78E88 /* AtTaskConnector */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93BDF152151A173900F78E88 /* Build configuration list for PBXNativeTarget "AtTaskConnector" */;
+			buildPhases = (
+				93BDF12A151A173900F78E88 /* Sources */,
+				93BDF12B151A173900F78E88 /* Frameworks */,
+				93BDF12C151A173900F78E88 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AtTaskConnector;
+			productName = AtTaskConnector;
+			productReference = 93BDF12E151A173900F78E88 /* libAtTaskConnector.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		93BDF13D151A173900F78E88 /* AtTaskConnectorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93BDF155151A173900F78E88 /* Build configuration list for PBXNativeTarget "AtTaskConnectorTests" */;
+			buildPhases = (
+				93BDF139151A173900F78E88 /* Sources */,
+				93BDF13A151A173900F78E88 /* Frameworks */,
+				93BDF13B151A173900F78E88 /* Resources */,
+				93BDF13C151A173900F78E88 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93BDF145151A173900F78E88 /* PBXTargetDependency */,
+			);
+			name = AtTaskConnectorTests;
+			productName = AtTaskConnectorTests;
+			productReference = 93BDF13E151A173900F78E88 /* AtTaskConnectorTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93BDF125151A173900F78E88 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
+			buildConfigurationList = 93BDF128151A173900F78E88 /* Build configuration list for PBXProject "AtTaskConnector" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 93BDF123151A173900F78E88;
+			productRefGroup = 93BDF12F151A173900F78E88 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93BDF12D151A173900F78E88 /* AtTaskConnector */,
+				93BDF13D151A173900F78E88 /* AtTaskConnectorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		93BDF13B151A173900F78E88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93BDF14C151A173900F78E88 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		93BDF13C151A173900F78E88 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93BDF12A151A173900F78E88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93BDF16F151A1C7D00F78E88 /* ATNetworkOperationManager.m in Sources */,
+				93BDF171151A1C7D00F78E88 /* NSMutableString+AtTaskConnector.m in Sources */,
+				93BDF173151A1C7D00F78E88 /* ATAPIGetByIDOperation.m in Sources */,
+				93BDF175151A1C7D00F78E88 /* ATAPILoginOperation.m in Sources */,
+				93BDF177151A1C7D00F78E88 /* ATAPIObjectOperation.m in Sources */,
+				93BDF179151A1C7D00F78E88 /* ATAPIOperation.m in Sources */,
+				93BDF17B151A1C7D00F78E88 /* ATAPISearchOperation.m in Sources */,
+				93BDF17D151A1C7D00F78E88 /* ATNetworkOperation.m in Sources */,
+				93BDF17F151A1C7D00F78E88 /* ATOperation.m in Sources */,
+				93B51CDD156FCD5500698D95 /* ATAvatarLoadingOperation.m in Sources */,
+				5482D56A15B4411A009B101F /* ATAPIReportOperation.m in Sources */,
+				549C2DA515C9561700F36F3E /* ATAPICreateObjectOperation.m in Sources */,
+				549C2DAA15C96C5400F36F3E /* ATAPIDeleteObjectOperation.m in Sources */,
+				54991D8815CAA52000EEA7F7 /* ATAPIBatchOperation.m in Sources */,
+				93A24B0D15E6348E00D63044 /* ATAPIUpdateObjectOperation.m in Sources */,
+				93BDED2015E75CDD001D6F1F /* ATDataParser.m in Sources */,
+				93974F291669005D00F302BC /* ATDataDownloadingOperation.m in Sources */,
+				5436E4731681C5A400D6339C /* ATAPILogoutOperation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93BDF139151A173900F78E88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93BDF14F151A173900F78E88 /* AtTaskConnectorTests.m in Sources */,
+				93BDF263151B480E00F78E88 /* ATNetworkOperationManagerTests.m in Sources */,
+				93BDF264151B480E00F78E88 /* ATOperationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		93BDF145151A173900F78E88 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93BDF12D151A173900F78E88 /* AtTaskConnector */;
+			targetProxy = 93BDF144151A173900F78E88 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		93BDF14A151A173900F78E88 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93BDF14B151A173900F78E88 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		93BDF150151A173900F78E88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		93BDF151151A173900F78E88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		93BDF153151A173900F78E88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/AtTaskConnector.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AtTaskConnector/AtTaskConnector-Prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		93BDF154151A173900F78E88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/AtTaskConnector.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AtTaskConnector/AtTaskConnector-Prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		93BDF156151A173900F78E88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/AtTaskConnectorTests/External\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AtTaskConnector/AtTaskConnector-Prefix.pch";
+				INFOPLIST_FILE = "AtTaskConnectorTests/AtTaskConnectorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		93BDF157151A173900F78E88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/AtTaskConnectorTests/External\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AtTaskConnector/AtTaskConnector-Prefix.pch";
+				INFOPLIST_FILE = "AtTaskConnectorTests/AtTaskConnectorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93BDF128151A173900F78E88 /* Build configuration list for PBXProject "AtTaskConnector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93BDF150151A173900F78E88 /* Debug */,
+				93BDF151151A173900F78E88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93BDF152151A173900F78E88 /* Build configuration list for PBXNativeTarget "AtTaskConnector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93BDF153151A173900F78E88 /* Debug */,
+				93BDF154151A173900F78E88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93BDF155151A173900F78E88 /* Build configuration list for PBXNativeTarget "AtTaskConnectorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93BDF156151A173900F78E88 /* Debug */,
+				93BDF157151A173900F78E88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 93BDF125151A173900F78E88 /* Project object */;
+}

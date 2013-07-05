@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'AtTaskConnector' target in the 'AtTaskConnector' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+#endif
