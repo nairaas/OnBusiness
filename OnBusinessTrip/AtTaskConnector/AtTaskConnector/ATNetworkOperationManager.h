@@ -19,7 +19,7 @@ typedef void (^ATNetworkOperationCompletionHandler)();
 
 @interface ATNetworkOperationManager : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 
-@property (nonatomic, copy) NSString *sessionID;
+//@property (nonatomic, copy) NSString *sessionID;
 @property (nonatomic, copy) NSString *serviceHost;
 @property (nonatomic, readonly) NSString *normalizedServiceHost;
 

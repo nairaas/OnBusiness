@@ -18,14 +18,17 @@
 
 static NSInteger const kHTTPStatusCodeUnauthorized = 401;
 
-static NSString *const kSessionIDHeaderName = @"SessionID";
-static NSString *const kSessionIDParameterName = @"sessionID";
+static NSString *const kAccessTokenHeaderName = @"Authorization: Bearer";
+static NSString *const kAccessTokenParameterName = @"Bearer";
 static NSString *const kMethodParameterName = @"method";
 
 //TODO refactor suffix handling
 static NSString *const kHostSuffix = @".attask-ondemand.com";
 
 @interface ATNetworkOperationManager ()
+
+@property (nonatomic, strong) NSString *accessToken;
+@property (nonatomic, strong) NSString *refreshToken;
 
 @property (nonatomic, strong) NSMutableSet *waitingNetworkOperations;
 @property (nonatomic, strong) NSMutableDictionary *activeConnections;
@@ -52,7 +55,10 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 
 @implementation ATNetworkOperationManager
 
-@synthesize sessionID = _sessionID;
+//@synthesize sessionID = _sessionID;
+@synthesize accessToken = _accessToken;
+@synthesize refreshToken = _refreshToken;
+
 @synthesize serviceHost = _serviceHost;
 
 @synthesize username = _username;
@@ -134,7 +140,7 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 	if ([operation isKindOfClass:[ATAPILoginOperation class]]) {
 		[self submitLoginOperation:(ATAPILoginOperation *)operation];
 	} else if ([operation isKindOfClass:[ATAPILogoutOperation class]]) {
-		self.sessionID = nil;
+		self.accessToken = nil;
 	} else {
 		[self queueNetworkOperation:operation];
 	}
@@ -247,11 +253,11 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 	[HTTPHeaders addEntriesFromDictionary:[operation HTTPHeaders]];
 	NSMutableString *query = [[NSMutableString alloc] initWithString:[operation URIQuery]];
 	NSString *HTTPMethod = [operation HTTPMethod];
-	if (self.sessionID) {
+	if (self.accessToken) {
 		if (self.authenticationMethod == ATServiceAuthenticationMethodParameter) {
-			[query appendURLParameterWithName:kSessionIDParameterName value:self.sessionID];
+			[query appendURLParameterWithName:kAccessTokenParameterName value:self.accessToken];
 		} else {
-			[HTTPHeaders setObject:self.sessionID forKey:kSessionIDHeaderName];
+			[HTTPHeaders setObject:self.accessToken	forKey:kAccessTokenHeaderName];
 		}
 	}
 	BOOL usePost = (self.usePostForAPI && [operation isKindOfClass:[ATAPIOperation class]]);
@@ -380,7 +386,7 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 
 - (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)response {
 	NSString *body = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
-	NSLog(@"-------SEND-------\nURL: %@\nBody: %@\n Method: %@ \n\n", [request URL], [request HTTPBody], request.HTTPMethod);
+	NSLog(@"-------SEND-------\nURL: %@\nBody: %@\n Method: %@ \n\n%@", [request URL], [request HTTPBody], request.HTTPMethod, [request allHTTPHeaderFields]);
 	NSValue *key = [NSValue valueWithNonretainedObject:connection];
 	ATNetworkOperation *operation = [self.activeConnections objectForKey:key];
 	if (nil != response && [operation isKindOfClass:[ATAPILoginOperation class]]) {
@@ -437,7 +443,7 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 	BOOL isLoginOperation = [operation isEqual:self.loginOperation];
 	if (!isLoginOperation && (sc == kHTTPStatusCodeUnauthorized)) {
 		shouldStopRunLoop = NO;
-		self.sessionID = nil;
+		self.accessToken = nil;
 		[self submitLoginOperation:[self createLoginOperation]];
 	} else {
 		ATNetworkOperationManager * __weak theSelf = self;
@@ -445,7 +451,8 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 			@autoreleasepool {
 				if ([operation parseData:self.dataParser]) {
 					if (isLoginOperation) {
-						theSelf.sessionID = [(ATAPILoginOperation *)operation sessionID];
+						theSelf.accessToken = [(ATAPILoginOperation *)operation accessToken];
+						theSelf.refreshToken = [(ATAPILoginOperation *)operation refreshToken];
 						theSelf.loginOperation = nil;
 					}
 					[theSelf performSelectorOnMainThread:@selector(networkOperationSucceed:) withObject:operation waitUntilDone:NO];

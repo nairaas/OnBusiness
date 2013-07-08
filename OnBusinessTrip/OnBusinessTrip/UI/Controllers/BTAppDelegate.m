@@ -168,7 +168,7 @@
 		_networkOperationManager = [[ATNetworkOperationManager alloc] init];
 		_networkOperationManager.apiPath = @"";
 		_networkOperationManager.apiVersion = @"";
-		_networkOperationManager.authenticationMethod = ATServiceAuthenticationMethodParameter;
+		_networkOperationManager.authenticationMethod = ATServiceAuthenticationMethodHeader;
         _networkOperationManager.serviceHost = @"http://ec2-54-214-166-237.us-west-2.compute.amazonaws.com:8080/OnBusinessTrip";
         _networkOperationManager.usePostForAPI = YES;
 	}

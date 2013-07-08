@@ -13,8 +13,9 @@
 @property (nonatomic, copy) NSString *username;
 @property (nonatomic, copy) NSString *password;
 
-@property (nonatomic, readonly) NSDictionary *sessionAttributes;
-@property (nonatomic, readonly) NSString *sessionID;
+//@property (nonatomic, readonly) NSDictionary *sessionAttributes;
+@property (nonatomic, readonly) NSString *accessToken;
+@property (nonatomic, readonly) NSString *refreshToken;
 
 - (id)initWithUsername:(NSString *)username password:(NSString *)password;
 - (id)initWithUsername:(NSString *)username password:(NSString *)password

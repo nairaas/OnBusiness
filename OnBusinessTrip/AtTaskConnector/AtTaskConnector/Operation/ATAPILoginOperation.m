@@ -15,7 +15,8 @@ static NSString *const kInputPassword = @"password";
 static NSString *const kParameterUsername = @"username";
 static NSString *const kParameterPassword = @"password";
 
-static NSString *const kOutputSessionID = @"sessionID";
+static NSString *const kOutputAccessToken = @"access_token";
+static NSString *const kOutputRefreshToken = @"refresh_token";
 
 @implementation ATAPILoginOperation
 
@@ -66,14 +67,30 @@ static NSString *const kOutputSessionID = @"sessionID";
 	return nil;
 }
 
-- (NSString *)sessionID {
-	NSString *sessionID = nil;
-	NSDictionary *sessionAttributes = self.sessionAttributes;
-	if (sessionAttributes) {
-		sessionID = [sessionAttributes objectForKey:kOutputSessionID];
+- (NSString *)accessToken {
+	id result = self.output;
+	if ([result isKindOfClass:[NSDictionary class]]) {
+		return [result objectForKey:kOutputAccessToken];
 	}
-	return sessionID;
+	return nil;
 }
+
+- (NSString *)refreshToken {
+	id result = self.output;
+	if ([result isKindOfClass:[NSDictionary class]]) {
+		return [result objectForKey:kOutputRefreshToken];
+	}
+	return nil;
+}
+
+//- (NSString *)sessionID {
+//	NSString *sessionID = nil;
+//	NSDictionary *sessionAttributes = self.sessionAttributes;
+//	if (sessionAttributes) {
+//		sessionID = [sessionAttributes objectForKey:kOutputSessionID];
+//	}
+//	return sessionID;
+//}
 
 #pragma mark - Provide info for request creation
 
