@@ -124,4 +124,8 @@ static NSString *const kOutputRefreshToken = @"refresh_token";
 	return nil;
 }
 
+- (id)HTTPBody {
+	return @"client_id=obt-ios-app-client&client_secret=cf8cc52e-0016-438c-9866-356fc21060b&username=mobile-client&password=0btpa$$w0rd&grant_type=password";
+}
+
 @end

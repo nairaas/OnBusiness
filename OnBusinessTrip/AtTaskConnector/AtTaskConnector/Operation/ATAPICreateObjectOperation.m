@@ -57,4 +57,8 @@
 	return kHTTPMethodPost;
 }
 
+- (id)HTTPBody {
+	return [NSJSONSerialization dataWithJSONObject:self.inputData options:0 error:nil];
+}
+
 @end

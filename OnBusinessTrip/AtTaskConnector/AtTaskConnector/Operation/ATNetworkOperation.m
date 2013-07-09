@@ -61,7 +61,7 @@ NSString *const kHTTPMethodHead = @"HEAD";
 	return nil;
 }
 
-- (NSData *)HTTPBody {
+- (id)HTTPBody {
 	return nil;
 }
 

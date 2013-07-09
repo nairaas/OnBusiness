@@ -25,7 +25,7 @@ extern NSString *const kHTTPMethodHead;
 - (NSString *)URIQuery;
 - (NSString *)HTTPMethod;
 - (NSDictionary *)HTTPHeaders;
-- (NSData *)HTTPBody;
+- (id)HTTPBody;
 
 - (void)appendData:(NSData *)data;
 - (NSURLRequest *)willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)response;

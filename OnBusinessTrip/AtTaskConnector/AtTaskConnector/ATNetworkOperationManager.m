@@ -18,7 +18,7 @@
 
 static NSInteger const kHTTPStatusCodeUnauthorized = 401;
 
-static NSString *const kAccessTokenHeaderName = @"Authorization: Bearer";
+static NSString *const kAccessTokenHeaderName = @"Authorization";
 static NSString *const kAccessTokenParameterName = @"Bearer";
 static NSString *const kMethodParameterName = @"method";
 
@@ -257,7 +257,7 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 		if (self.authenticationMethod == ATServiceAuthenticationMethodParameter) {
 			[query appendURLParameterWithName:kAccessTokenParameterName value:self.accessToken];
 		} else {
-			[HTTPHeaders setObject:self.accessToken	forKey:kAccessTokenHeaderName];
+			[HTTPHeaders setObject:[NSString stringWithFormat:@"Bearer %@", self.accessToken] forKey:kAccessTokenHeaderName];
 		}
 	}
 	BOOL usePost = (self.usePostForAPI && [operation isKindOfClass:[ATAPIOperation class]]);
@@ -280,9 +280,9 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
                 } else {
                     dd = [(ATAPIOperation *)operation inputData];
                 }*/
-				NSString *ss = @"client_id=obt-ios-app-client&client_secret=cf8cc52e-0016-438c-9866-356fc21060b&username=mobile-client&password=0btpa$$w0rd&grant_type=password";
-				dd = [ss dataUsingEncoding:NSUTF8StringEncoding];
-                [request setHTTPBody:dd];
+//				NSString *ss = ;
+//				dd = [ss dataUsingEncoding:NSUTF8StringEncoding];
+//                [request setHTTPBody:dd];
             }
 
             //[request setHTTPBody:dd];
@@ -293,6 +293,11 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 		}
 		[request setHTTPBody:[operation HTTPBody]];
 	}
+	id body = [operation HTTPBody];
+	if ([body isKindOfClass:[NSString class]]) {
+		body = [body dataUsingEncoding:NSUTF8StringEncoding];
+	}
+	[request setHTTPBody:body];
 	NSURL *u = [[NSURL alloc] initWithString:urlString];
 	[request setURL:u];
 //	[HTTPHeaders setObject:@"gzip" forKey:@"Accept-Encoding"];
