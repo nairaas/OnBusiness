@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		935EE368179169450008BA9C /* BTApplicationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 935EE367179169450008BA9C /* BTApplicationContext.m */; };
 		A50F3DF8172C4CFE00034E85 /* BTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A50F3DF5172C4CFE00034E85 /* BTAppDelegate.m */; };
 		A50F3DF9172C4CFE00034E85 /* BTFindMatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50F3DF7172C4CFE00034E85 /* BTFindMatchesViewController.m */; };
 		A50F3DFC172C4D8D00034E85 /* BTMatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50F3DFB172C4D8D00034E85 /* BTMatchesViewController.m */; };
@@ -94,6 +95,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		935EE366179169450008BA9C /* BTApplicationContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTApplicationContext.h; sourceTree = "<group>"; };
+		935EE367179169450008BA9C /* BTApplicationContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTApplicationContext.m; sourceTree = "<group>"; };
 		A50F3DF4172C4CFE00034E85 /* BTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTAppDelegate.h; sourceTree = "<group>"; };
 		A50F3DF5172C4CFE00034E85 /* BTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTAppDelegate.m; sourceTree = "<group>"; };
 		A50F3DF6172C4CFE00034E85 /* BTFindMatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTFindMatchesViewController.h; sourceTree = "<group>"; };
@@ -206,6 +209,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		935EE3641791691D0008BA9C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				935EE366179169450008BA9C /* BTApplicationContext.h */,
+				935EE367179169450008BA9C /* BTApplicationContext.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		A50F3DF1172C4BB400034E85 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +295,7 @@
 		A598C616172084D9002E4379 /* OnBusinessTrip */ = {
 			isa = PBXGroup;
 			children = (
+				935EE3641791691D0008BA9C /* Core */,
 				A5CC1F821763246B00B3D7C3 /* Objects */,
 				A5CC1F3A1757DF6700B3D7C3 /* Operations */,
 				A5CC1F301753DB6E00B3D7C3 /* Categories */,
@@ -551,6 +564,7 @@
 				A5F6D49C176AC184002413DE /* BTUserView.m in Sources */,
 				A59A05251777920D00A1262A /* BTUploadImage.m in Sources */,
 				A58F0467178088DD000C357F /* BTGetUserProfileOperation.m in Sources */,
+				935EE368179169450008BA9C /* BTApplicationContext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,9 +11,11 @@
 #import "BTCreateProfile.h"
 #import "BTCreateTripOperation.h"
 #import "BTGetSearchOperation.h"
-#import "BTAppDelegate.h"
+//#import "BTAppDelegate.h"
 #import "BTUploadImage.h"
 #import "BTGetUserProfileOperation.h"
+
+#import <AtTaskConnector/AtTaskConnector.h>
 
 @interface BTSignUpViewController ()
 
@@ -47,15 +49,17 @@
                                            date:self.dateTextField.text gender:0
                                      successSel:@selector(successfulSignUpHandler:)
                                      failureSel:@selector(failedSignUpHandler:) target:self];
-    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [del.networkOperationManager submitNetworkOperation:op];
+//    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
+//    [del.networkOperationManager submitNetworkOperation:op];
+    [[ATNetworkOperationManager sharedInstance] submitNetworkOperation:op];
 }
 
 - (void)successfulSignUpHandler:(NSDictionary *)userInfo {
     NSLog(@"USER: %@", userInfo);
     BTCreateProfile *op = [[BTCreateProfile alloc] initWithUserID:[userInfo objectForKey:@"id"] name:@"Hello" date:nil gender:1 successSel:@selector(profileCreated:) failureSel:@selector(profileCreationFailed:) target:self];
-    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [del.networkOperationManager submitNetworkOperation:op];
+//    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
+//    [del.networkOperationManager submitNetworkOperation:op];
+    [[ATNetworkOperationManager sharedInstance] submitNetworkOperation:op];
 }
 
 - (void)failedSignUpHandler:(NSError *)error {
@@ -68,14 +72,18 @@
     BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
     [del.networkOperationManager submitNetworkOperation:op];
  */
-    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
+//    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
 	BTGetUserProfileOperation *opp = [[BTGetUserProfileOperation alloc] initWithProfileID:[profile objectForKey:@"id"] successSel:@selector(profileRetrieved:) failureSel:@selector(profileRetrievalFailed:) target:self];
-	[del.networkOperationManager submitNetworkOperation:opp];
-    BTGetSearchOperation *op = [[BTGetSearchOperation alloc] initWithProfileID:[profile objectForKey:@"id"] successSel:@selector(searchSucceeded:) failureSel:@selector(searchFailedWithError:) target:self];
-    [del.networkOperationManager submitNetworkOperation:op];
+//	[del.networkOperationManager submitNetworkOperation:opp];
+	[[ATNetworkOperationManager sharedInstance] submitNetworkOperation:opp];
+	
+	BTGetSearchOperation *op = [[BTGetSearchOperation alloc] initWithProfileID:[profile objectForKey:@"id"] successSel:@selector(searchSucceeded:) failureSel:@selector(searchFailedWithError:) target:self];
+//    [del.networkOperationManager submitNetworkOperation:op];
+	[[ATNetworkOperationManager sharedInstance] submitNetworkOperation:op];
     
     BTUploadImageOperation *upload = [[BTUploadImageOperation alloc] initWithProfileID:@"11" successSel:@selector(imageUploaded:) failureSel:@selector(imageUploadingFailed:) target:self];
-    [del.networkOperationManager submitNetworkOperation:upload];
+//    [del.networkOperationManager submitNetworkOperation:upload];
+	[[ATNetworkOperationManager sharedInstance] submitNetworkOperation:upload];
 }
 
 - (void)profileCreationFailed:(NSError *)error {

@@ -26,6 +26,14 @@
                           UITextAttributeTextShadowColor: [UIColor clearColor],
                          UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)],
                                      UITextAttributeFont: [UIFont fontWithName:@"Trebuchet MS" size:20.0f]}];
+	
+	ATNetworkOperationManager *networkOperationManager = [ATNetworkOperationManager sharedInstance];
+	networkOperationManager.apiPath = @"";
+	networkOperationManager.apiVersion = @"";
+	networkOperationManager.authenticationMethod = ATServiceAuthenticationMethodHeader;
+	networkOperationManager.serviceHost = @"http://ec2-54-214-166-237.us-west-2.compute.amazonaws.com:8080/OnBusinessTrip";
+	networkOperationManager.usePostForAPI = YES;
+
  /*   ATOperationHandler successHandler = ^(ATOperation *operation) {
 //		id data = [(ATAPIOperation *)operation jsonData];
 //        NSLog(@"Data: %@", data);
@@ -165,7 +173,7 @@
 
 - (ATNetworkOperationManager *)networkOperationManager {
 	if (!_networkOperationManager) {
-		_networkOperationManager = [[ATNetworkOperationManager alloc] init];
+		_networkOperationManager = [ATNetworkOperationManager sharedInstance];
 		_networkOperationManager.apiPath = @"";
 		_networkOperationManager.apiVersion = @"";
 		_networkOperationManager.authenticationMethod = ATServiceAuthenticationMethodHeader;

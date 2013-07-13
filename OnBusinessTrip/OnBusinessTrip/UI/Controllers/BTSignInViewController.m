@@ -8,7 +8,10 @@
 
 #import "BTSignInViewController.h"
 #import "BTSignInOperation.h"
-#import "BTAppDelegate.h"
+
+#import <AtTaskConnector/AtTaskConnector.h>
+
+//#import "BTAppDelegate.h"
 
 @interface BTSignInViewController ()
 
@@ -47,8 +50,9 @@
                                                                password:@"0btpa$$w0rd" //self.passwordTextField.text
                                                              successSel:@selector(signInSucceeded)
                                                              failureSel:@selector(signInFailedWithError:) target:self];
-    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [del.networkOperationManager submitNetworkOperation:op];
+//    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [[ATNetworkOperationManager sharedInstance] submitNetworkOperation:op];
+//    [del.networkOperationManager submitNetworkOperation:op];
 }
 
 - (void)signInSucceeded {

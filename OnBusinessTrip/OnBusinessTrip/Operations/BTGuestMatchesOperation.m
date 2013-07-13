@@ -12,7 +12,7 @@
 
 @implementation BTGuestMatchesOperation
 
-- (id)initWithSuccessSel:(SEL)successSel failureSel:(SEL)failureSel target:(id)target {
+- (id)initWithTrip:(NSDictionary *)trip successSel:(SEL)successSel failureSel:(SEL)failureSel target:(id)target {
     ATOperationHandler successHandler = ^(ATOperation *operation) {
 		id result = [(ATAPIOperation *)operation output];
 		[OperationHelper invokeSelector:successSel onTarget:target withObject:result forID:nil];
@@ -21,10 +21,8 @@
 		[OperationHelper invokeSelector:failureSel onTarget:target withObject:operation.error forID:nil];
 	};
     
-//    BTSearch *search = [BTSearch getInstance] de
     NSDictionary *search = [NSDictionary dictionaryWithObjectsAndKeys:@"18", @"ageFrom", @"65", @"ageTo", @"1", @"dating", @"1", @"gender", @"1", @"social", nil];
-    NSDictionary *trip = [NSDictionary dictionaryWithObjectsAndKeys:@"2013-06-20T00:00:00", @"startDate", @"2013-06-25T00:00:00", @"endDate", @"83", @"locationId", nil];
-//    NSDictionary *input = [NSDictionary ]
+//    NSDictionary *trip = [NSDictionary dictionaryWithObjectsAndKeys:@"2013-06-20T00:00:00", @"startDate", @"2013-06-25T00:00:00", @"endDate", @"83", @"locationId", nil];
 	return [super initWithObjectCode:@"match/guest/search" inputData:[NSDictionary dictionaryWithObjectsAndKeys:search, @"search", trip, @"trip", nil] fields:nil completionHandler:successHandler
                       failureHandler:failureHandler];
 }

@@ -54,6 +54,7 @@
 @interface AutocompletionTableView : UITableView <UITableViewDataSource, UITableViewDelegate, BTGooglePlacesConnectorDelegate>
 // Dictionary of NSStrings of your auto-completion terms
 @property (nonatomic, strong) NSArray *suggestionsDictionary; 
+@property (nonatomic, strong) NSArray *suggestionOptions; // of selected NSStrings
 
 // Delegate for AutocompletionTableView
 @property (nonatomic, strong) id<AutocompletionTableViewDelegate> autoCompleteDelegate;

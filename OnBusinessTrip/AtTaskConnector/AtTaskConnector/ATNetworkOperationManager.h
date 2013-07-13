@@ -36,6 +36,8 @@ typedef void (^ATNetworkOperationCompletionHandler)();
 
 @property (nonatomic, assign) Class dataParser;
 
++ (ATNetworkOperationManager *)sharedInstance;
+
 - (void)submitNetworkOperation:(ATNetworkOperation *)operation;
 
 @end

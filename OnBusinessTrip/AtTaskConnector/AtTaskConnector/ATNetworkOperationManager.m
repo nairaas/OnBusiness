@@ -100,6 +100,15 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 	}
 }
 
++ (ATNetworkOperationManager *)sharedInstance {
+	static ATNetworkOperationManager *instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[ATNetworkOperationManager alloc] init];
+    });
+    return instance;
+}
+
 #pragma mark - Custom accessors
 
 - (NSMutableSet *)waitingNetworkOperations {
@@ -391,7 +400,7 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 
 - (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)response {
 	NSString *body = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
-	NSLog(@"-------SEND-------\nURL: %@\nBody: %@\n Method: %@ \n\n%@", [request URL], [request HTTPBody], request.HTTPMethod, [request allHTTPHeaderFields]);
+	NSLog(@"-------SEND-------\nURL: %@\nBody: %@\n Method: %@ \n\n%@", [request URL], body, request.HTTPMethod, [request allHTTPHeaderFields]);
 	NSValue *key = [NSValue valueWithNonretainedObject:connection];
 	ATNetworkOperation *operation = [self.activeConnections objectForKey:key];
 	if (nil != response && [operation isKindOfClass:[ATAPILoginOperation class]]) {

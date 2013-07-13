@@ -7,14 +7,20 @@
 //
 
 #import "BTFindMatchesViewController.h"
+
 #import <QuartzCore/QuartzCore.h>
+#import <AtTaskConnector/AtTaskConnector.h>
+
 #import "UIColor+Addition.h"
 #import "UIView+Additions.h"
 
-#import "BTLocationTextField.h"
 #import "BTAppDelegate.h"
+#import "BTApplicationContext.h"
+#import "BTLocationTextField.h"
 #import "AutocompletionTableView.h"
 #import "BTGooglePlacesConnector.h"
+
+#import "BTSignInOperation.h"
 #import "BTGuestMatchesOperation.h"
 
 static NSInteger kBaseYear = 2000;
@@ -84,11 +90,31 @@ static NSArray *kShortMonths;
 
 
 - (IBAction)findMatchesPressed:(id)sender {
-    BTGuestMatchesOperation *op = [[BTGuestMatchesOperation alloc] initWithSuccessSel:@selector(searchSucceeded:) failureSel:@selector(searchFailedWithError:) target:self];
-    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [del.networkOperationManager submitNetworkOperation:op];
+	NSLog(@"222: %@", [[BTApplicationContext sharedInstance] guestUsername]);
+	NSLog(@"333: %@", [[ATNetworkOperationManager sharedInstance] serviceHost]);
+	BTSignInOperation *op = [[BTSignInOperation alloc] initWithUserName:[[BTApplicationContext sharedInstance] guestUsername]
+                                                               password:[[BTApplicationContext sharedInstance] guestPassword]
+                                                             successSel:@selector(guestSignInSucceeded)
+                                                             failureSel:@selector(guestSignInFailedWithError:) target:self];
+	//    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
+//    [[ATNetworkOperationManager sharedInstance] submitNetworkOperation:op];
+	[self guestSignInSucceeded];
+}
+
+- (void)guestSignInSucceeded {
+	NSLog(@"login");
+	NSDictionary *location = [NSDictionary dictionaryWithObjectsAndKeys:@"The Netherlands", @"country", @"Amsterdam", @"city", nil];
+	NSDictionary *trip = [NSDictionary dictionaryWithObjectsAndKeys:@"2013-06-20T00:00:00", @"startDate", @"2013-06-25T00:00:00", @"endDate", location, @"location", nil];
+
+	BTGuestMatchesOperation *op = [[BTGuestMatchesOperation alloc] initWithTrip:trip successSel:@selector(searchSucceeded:) failureSel:@selector(searchFailedWithError:) target:self];
+	//    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [[ATNetworkOperationManager sharedInstance] submitNetworkOperation:op];
     [self.findButton.titleLabel setOrigin:CGPointMake((self.findButton.titleLabel.frame.origin.x -1),
                                                       (self.findButton.titleLabel.frame.origin.y - 5))];
+}
+
+- (void)guestSignInFailedWithError:(NSError *)error {
+	NSLog(@"guestSignInFailedWithError: %@", error);
 }
 
 - (void)searchSucceeded:(id)result {
@@ -96,7 +122,7 @@ static NSArray *kShortMonths;
     NSLog(@"111: %@", self.navigationController);
     BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
     UIViewController *v = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarViewController"];
-    [del.window setRootViewController:v];
+	[del.window setRootViewController:v];
 }
 
 - (void)searchFailedWithError:(NSError *)error {
@@ -122,7 +148,8 @@ static NSArray *kShortMonths;
 }
 
 - (void)autoCompletion:(AutocompletionTableView *)completer didSelectAutoCompleteSuggestionWithIndex:(NSInteger)index {
-    
+    id xx = [completer.suggestionOptions objectAtIndex:index];
+	NSLog(@"XXX: %@",xx);
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
@@ -150,6 +177,7 @@ static NSArray *kShortMonths;
 //    [self.scrollView scrollRectToVisible:CGRectMake(0, 200, 320, 100) animated:YES];
 	return NO;
 }
+
 - (void)textFieldDidEndEditing:(UITextField *)textField {
 	[self.datePickerView setHidden:YES];
 	[self.scrollView setContentOffset:CGPointMake(0, 120) animated:YES];

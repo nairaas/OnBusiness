@@ -8,7 +8,7 @@
 #import "AutocompletionTableView.h"
 
 @interface AutocompletionTableView () 
-@property (nonatomic, strong) NSArray *suggestionOptions; // of selected NSStrings 
+//@property (nonatomic, strong) NSArray *suggestionOptions; // of selected NSStrings 
 @property (nonatomic, strong) UITextField *textField; // will set automatically as user enters text
 @property (nonatomic, strong) UIFont *cellLabelFont; // will copy style from assigned textfield
 

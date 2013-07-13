@@ -10,6 +10,6 @@
 
 @interface BTGuestMatchesOperation : ATAPICreateObjectOperation
 
-- (id)initWithSuccessSel:(SEL)successSel failureSel:(SEL)failureSel target:(id)target;
+- (id)initWithTrip:(NSDictionary *)trip successSel:(SEL)successSel failureSel:(SEL)failureSel target:(id)target;
 
 @end
