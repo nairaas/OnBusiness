@@ -8,6 +8,7 @@
 
 #import "BTSignInViewController.h"
 #import "BTSignInOperation.h"
+#import "BTApplicationContext.h"
 
 #import <AtTaskConnector/AtTaskConnector.h>
 
@@ -46,8 +47,8 @@
 }
 
 - (IBAction)signIn:(id)sender {
-    BTSignInOperation *op = [[BTSignInOperation alloc] initWithUserName:@"mobile-client" //self.emailTextField.text
-                                                               password:@"0btpa$$w0rd" //self.passwordTextField.text
+    BTSignInOperation *op = [[BTSignInOperation alloc] initWithUserName:self.emailTextField.text //self.emailTextField.text
+                                                               password:self.passwordTextField.text //self.passwordTextField.text
                                                              successSel:@selector(signInSucceeded)
                                                              failureSel:@selector(signInFailedWithError:) target:self];
 //    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -57,6 +58,7 @@
 
 - (void)signInSucceeded {
     NSLog(@"Sign in Succeeded");
+	[[BTApplicationContext sharedInstance] setLoggedIn:YES];
 }
 
 - (void)signInFailedWithError:(NSError *)error {

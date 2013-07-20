@@ -13,11 +13,14 @@
 @synthesize guestUsername = _guestUsername;
 @synthesize guestPassword = _guestPassword;
 
+@synthesize loggedIn = _loggedIn;
+
 - (id)init {
 	self = [super init];
 	if (self) {
 		_guestUsername = @"mobile-client";
 		_guestPassword = @"0btpa$$w0rd";
+		_loggedIn = NO;
 	}
 	return self;
 }

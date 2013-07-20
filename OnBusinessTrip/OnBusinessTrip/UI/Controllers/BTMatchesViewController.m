@@ -9,6 +9,7 @@
 #import "BTMatchesViewController.h"
 #import "BTProfileViewController.h"
 #import "BTUserView.h"
+#import "BTGuestMatchesOperation.h"
 
 @interface BTMatchesViewController ()
 
@@ -32,6 +33,12 @@
     [super viewDidLoad];
     UIImage *navBarBg = [UIImage imageNamed:@"nav_bar_bg.png"];
 	[self.navigationController.navigationBar setBackgroundImage:navBarBg forBarMetrics:UIBarMetricsDefault];
+	NSDictionary *location = [NSDictionary dictionaryWithObjectsAndKeys:@"The Netherlands", @"country", @"Amsterdam", @"city", nil];
+	NSDictionary *trip = [NSDictionary dictionaryWithObjectsAndKeys:@"2013-06-20T00:00:00", @"startDate", @"2013-06-25T00:00:00", @"endDate", location, @"location", nil];
+
+	BTGuestMatchesOperation *op = [[BTGuestMatchesOperation alloc] initWithTrip:trip successSel:@selector(searchSucceeded:) failureSel:@selector(searchFailedWithError:) target:self];
+	//    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
+	[[ATNetworkOperationManager sharedInstance] submitNetworkOperation:op];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -98,4 +105,14 @@
 }
 
 //- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath;
+
+- (void)searchSucceeded:(id)result {
+    NSLog(@"Result: %@", result);
+    NSLog(@"111: %@", self.navigationController);
+}
+
+- (void)searchFailedWithError:(NSError *)error {
+    NSLog(@"Errorrrrr: %@", error);
+}
+
 @end

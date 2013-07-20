@@ -21,7 +21,6 @@
 #import "BTGooglePlacesConnector.h"
 
 #import "BTSignInOperation.h"
-#import "BTGuestMatchesOperation.h"
 
 static NSInteger kBaseYear = 2000;
 static NSArray *kShortMonths;
@@ -90,26 +89,26 @@ static NSArray *kShortMonths;
 
 
 - (IBAction)findMatchesPressed:(id)sender {
-	NSLog(@"222: %@", [[BTApplicationContext sharedInstance] guestUsername]);
-	NSLog(@"333: %@", [[ATNetworkOperationManager sharedInstance] serviceHost]);
 	BTSignInOperation *op = [[BTSignInOperation alloc] initWithUserName:[[BTApplicationContext sharedInstance] guestUsername]
                                                                password:[[BTApplicationContext sharedInstance] guestPassword]
                                                              successSel:@selector(guestSignInSucceeded)
                                                              failureSel:@selector(guestSignInFailedWithError:) target:self];
 	//    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
-//    [[ATNetworkOperationManager sharedInstance] submitNetworkOperation:op];
-	[self guestSignInSucceeded];
+    [[ATNetworkOperationManager sharedInstance] submitNetworkOperation:op];
+//	[self guestSignInSucceeded];
 }
 
 - (void)guestSignInSucceeded {
 	NSLog(@"login");
-	NSDictionary *location = [NSDictionary dictionaryWithObjectsAndKeys:@"The Netherlands", @"country", @"Amsterdam", @"city", nil];
-	NSDictionary *trip = [NSDictionary dictionaryWithObjectsAndKeys:@"2013-06-20T00:00:00", @"startDate", @"2013-06-25T00:00:00", @"endDate", location, @"location", nil];
 
-	BTGuestMatchesOperation *op = [[BTGuestMatchesOperation alloc] initWithTrip:trip successSel:@selector(searchSucceeded:) failureSel:@selector(searchFailedWithError:) target:self];
-	//    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [[ATNetworkOperationManager sharedInstance] submitNetworkOperation:op];
-    [self.findButton.titleLabel setOrigin:CGPointMake((self.findButton.titleLabel.frame.origin.x -1),
+	BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
+    UIViewController *v = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarViewController"];
+	[del.window setRootViewController:v];
+
+//	BTGuestMatchesOperation *op = [[BTGuestMatchesOperation alloc] initWithTrip:trip successSel:@selector(searchSucceeded:) failureSel:@selector(searchFailedWithError:) target:self];
+//	//    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
+//	[[ATNetworkOperationManager sharedInstance] submitNetworkOperation:op];
+	[self.findButton.titleLabel setOrigin:CGPointMake((self.findButton.titleLabel.frame.origin.x -1),
                                                       (self.findButton.titleLabel.frame.origin.y - 5))];
 }
 
@@ -117,20 +116,6 @@ static NSArray *kShortMonths;
 	NSLog(@"guestSignInFailedWithError: %@", error);
 }
 
-- (void)searchSucceeded:(id)result {
-    NSLog(@"Result: %@", result);
-    NSLog(@"111: %@", self.navigationController);
-    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
-    UIViewController *v = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarViewController"];
-	[del.window setRootViewController:v];
-}
-
-- (void)searchFailedWithError:(NSError *)error {
-    NSLog(@"Errorrrrr: %@", error);
-    UIViewController *v = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarViewController"];
-    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [del.window setRootViewController:v];
-}
 
 - (AutocompletionTableView *)autoCompleter {
     if (!_autoCompleter) {
