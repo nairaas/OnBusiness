@@ -242,7 +242,7 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 			[self startNetworkOperation:operation];
 		}
 	}
-//	[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+	[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
 #pragma mark - URL connection creation
@@ -261,7 +261,7 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 	NSMutableDictionary *HTTPHeaders = [[NSMutableDictionary alloc] init];
 	[HTTPHeaders addEntriesFromDictionary:[operation HTTPHeaders]];
 	NSMutableString *query = [[NSMutableString alloc] initWithString:[operation URIQuery]];
-	NSString *HTTPMethod = [operation HTTPMethod];
+//	NSString *HTTPMethod = [operation HTTPMethod];
 	if (self.accessToken) {
 		if (self.authenticationMethod == ATServiceAuthenticationMethodParameter) {
 			[query appendURLParameterWithName:kAccessTokenParameterName value:self.accessToken];
@@ -269,26 +269,21 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 			[HTTPHeaders setObject:[NSString stringWithFormat:@"Bearer %@", self.accessToken] forKey:kAccessTokenHeaderName];
 		}
 	}
-	BOOL usePost = (self.usePostForAPI && [operation isKindOfClass:[ATAPIOperation class]]);
-	if (usePost) {
-		[request setHTTPMethod:kHTTPMethodPost];
-		[query appendURLParameterWithName:kMethodParameterName value:HTTPMethod];
-	} else {
-		[request setHTTPMethod:HTTPMethod];
-	}
-    [request setHTTPMethod:[operation HTTPMethod]];
-//    request
-	if (usePost) {
+	[request setHTTPMethod:[operation HTTPMethod]];
+//	BOOL usePost = (self.usePostForAPI && [operation isKindOfClass:[ATAPIOperation class]]);
+//	if (usePost) {
+//		[request setHTTPMethod:kHTTPMethodPost];
+//		[query appendURLParameterWithName:kMethodParameterName value:HTTPMethod];
+//	} else {
+//		[request setHTTPMethod:HTTPMethod];
+//	}
+/*	if (usePost) {
 		if ([query length] > 0) {
             NSError *error;
             id input = [(ATAPIOperation *)operation inputData];
             if (input) {
                 NSData *dd = nil;
- /*               if (![[(ATAPIOperation *)operation inputData] isKindOfClass:[NSData class]]) {
-                    dd = [NSJSONSerialization dataWithJSONObject:[(ATAPIOperation *)operation inputData] options:0 error:&error];
-                } else {
-                    dd = [(ATAPIOperation *)operation inputData];
-                }*/
+ 
 //				NSString *ss = ;
 //				dd = [ss dataUsingEncoding:NSUTF8StringEncoding];
 //                [request setHTTPBody:dd];
@@ -302,6 +297,10 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 		}
 		[request setHTTPBody:[operation HTTPBody]];
 	}
+ */
+	if ([query length] > 0) {
+		[urlString appendFormat:@"?%@", query];
+	}
 	id body = [operation HTTPBody];
 	if ([body isKindOfClass:[NSString class]]) {
 		body = [body dataUsingEncoding:NSUTF8StringEncoding];
@@ -313,8 +312,6 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 	NSString *contentType = [operation HTTPHeaderForKey:@"Content-Type"];
 	if (contentType != nil) {
 		[HTTPHeaders setObject:contentType forKey:@"Content-Type"];
-	} else {
-		[HTTPHeaders setObject:@"application/json" forKey:@"Content-Type"];
 	}
     if ([[(ATAPIOperation *)operation inputData] isKindOfClass:[NSData class]]) {
         [HTTPHeaders setObject:@"multipart/form-data; boundary=-------------V2ymHFg03ehbqgZCaKO6jy" forKey:@"Content-Type"];

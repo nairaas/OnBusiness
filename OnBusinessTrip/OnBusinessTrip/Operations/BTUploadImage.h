@@ -8,7 +8,7 @@
 
 #import <AtTaskConnector/AtTaskConnector.h>
 
-@interface BTUploadImageOperation : ATAPICreateObjectOperation
+@interface BTUploadImageOperation : ATAPIPostOperation
 
 - (id)initWithProfileID:(NSString *)pID successSel:(SEL)successSel failureSel:(SEL)failureSel target:(id)target;
 

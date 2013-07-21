@@ -19,7 +19,7 @@
 	ATOperationHandler failureHandler = ^(ATOperation *operation) {
 		[OperationHelper invokeSelector:failureSel onTarget:target withObject:operation.error forID:nil];
 	};
-	return [super initWithObjectCode:@"settings" ID:profileID completionHandler:successHandler failureHandler:failureHandler];
+	return [super initWithURIPath:[NSString stringWithFormat:@"/settings/%@", profileID] completionHandler:successHandler failureHandler:failureHandler];
 }
 
 @end

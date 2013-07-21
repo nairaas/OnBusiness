@@ -30,6 +30,8 @@ NSString *const kHTTPMethodHead = @"HEAD";
 @synthesize internalData = _internalData;
 @synthesize redirectURLs = _redirectURLs;
 
+@synthesize URIPath = _URIPath;
+
 #pragma mark - Custom accessors
 
 - (NSMutableData *)internalData {
@@ -46,6 +48,9 @@ NSString *const kHTTPMethodHead = @"HEAD";
 #pragma mark - Provide info for request creation
 
 - (NSString *)URIPath {
+	if (nil != _URIPath) {
+		return [_URIPath copy];
+	}
 	return @"";
 }
 

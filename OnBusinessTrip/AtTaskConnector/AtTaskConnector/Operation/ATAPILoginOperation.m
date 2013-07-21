@@ -36,7 +36,10 @@ static NSString *const kOutputRefreshToken = @"refresh_token";
 	if (self) {
 		[self setOperationInputValue:username forKey:kInputUsername];
 		[self setOperationInputValue:password forKey:kInputPassword];
-        self.inputData = [NSDictionary dictionaryWithObjectsAndKeys:username, kInputUsername, password, kInputPassword, @"obt-ios-app-client", @"client_id", @"cf8cc52e-0016-438c-9866-356fc21060b", @"client_secret", @"password", @"grant_type", nil];
+        self.inputData = [NSDictionary dictionaryWithObjectsAndKeys:username, kInputUsername, password, kInputPassword,
+						  @"obt-ios-app-client", @"client_id",
+						  @"cf8cc52e-0016-438c-9866-356fc21060b", @"client_secret",
+						  @"password", @"grant_type", nil];
 	}
 	return self;
 }
@@ -125,7 +128,10 @@ static NSString *const kOutputRefreshToken = @"refresh_token";
 }
 
 - (id)HTTPBody {
+	NSMutableString *body = [[NSMutableString alloc] init];
+	[body appendURLParameterWithName:nil value:self.inputData];
 	return @"client_id=obt-ios-app-client&client_secret=cf8cc52e-0016-438c-9866-356fc21060b&username=mobile-client&password=0btpa$$w0rd&grant_type=password";
+	return [NSString stringWithString:body];
 }
 
 @end

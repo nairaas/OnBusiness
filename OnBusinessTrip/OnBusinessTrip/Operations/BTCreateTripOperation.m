@@ -22,9 +22,7 @@
     NSNumber *userId = [[NSNumber alloc] initWithInt:[uID integerValue]];
     NSNumber *locationId = [[NSNumber alloc] initWithInt:[lID integerValue]];
     NSDictionary *input = [NSDictionary dictionaryWithObjectsAndKeys:userId, @"userId", locationId, @"locationId", startDate, @"startDate", endDate, @"endDate", nil];
-	return [super initWithObjectCode:@"trip" inputData:input fields:nil
-                   completionHandler:successHandler
-                      failureHandler:failureHandler];
+	return [super initWithURIPath:@"/trip" inputData:input completionHandler:successHandler failureHandler:failureHandler];
 }
 
 @end

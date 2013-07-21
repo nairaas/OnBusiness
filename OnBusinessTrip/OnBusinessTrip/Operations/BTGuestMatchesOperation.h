@@ -8,7 +8,7 @@
 
 #import <AtTaskConnector/AtTaskConnector.h>
 
-@interface BTGuestMatchesOperation : ATAPICreateObjectOperation
+@interface BTGuestMatchesOperation : ATAPIPostOperation
 
 - (id)initWithTrip:(NSDictionary *)trip successSel:(SEL)successSel failureSel:(SEL)failureSel target:(id)target;
 

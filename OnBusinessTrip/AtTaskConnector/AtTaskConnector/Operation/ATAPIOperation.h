@@ -17,4 +17,7 @@ extern NSString *const kInputFields;
 @property (nonatomic, strong) id inputData;
 @property (nonatomic, strong) id output;
 
+- (id)initWithURIPath:(NSString *)path completionHandler:(ATOperationHandler)completionHandler;
+- (id)initWithURIPath:(NSString *)path completionHandler:(ATOperationHandler)completionHandler failureHandler:(ATOperationHandler)failureHandler;
+
 @end

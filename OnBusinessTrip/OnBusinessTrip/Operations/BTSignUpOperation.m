@@ -20,8 +20,7 @@
 		[OperationHelper invokeSelector:failureSel onTarget:target withObject:operation.error forID:nil];
 	};
     NSDictionary *input = [NSDictionary dictionaryWithObjectsAndKeys:email, @"email", pass, @"password", nil];
-	return [super initWithObjectCode:@"user" inputData:input fields:nil completionHandler:successHandler
-                      failureHandler:failureHandler];
+	return [super initWithURIPath:@"/user" inputData:input completionHandler:successHandler failureHandler:failureHandler];
 }
 
 @end

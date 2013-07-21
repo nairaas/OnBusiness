@@ -7,10 +7,13 @@
 //
 
 #import "BTSignUpViewController.h"
+#import "BTApplicationContext.h"
+
 #import "BTSignUpOperation.h"
 #import "BTCreateProfile.h"
 #import "BTCreateTripOperation.h"
 #import "BTGetSearchOperation.h"
+#import "BTSignInOperation.h"
 //#import "BTAppDelegate.h"
 #import "BTUploadImage.h"
 #import "BTGetUserProfileOperation.h"
@@ -44,14 +47,31 @@
 }
 
 - (IBAction)signUp:(id)sender {
-    BTSignUpOperation *op = [[BTSignUpOperation alloc] initWithUserName:self.emailTextField.text
-                                       password:self.passwordTextField.text
-                                           date:self.dateTextField.text gender:0
-                                     successSel:@selector(successfulSignUpHandler:)
-                                     failureSel:@selector(failedSignUpHandler:) target:self];
-//    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
-//    [del.networkOperationManager submitNetworkOperation:op];
+	[self signInAsGuest];
+ 
+}
+
+- (void)signInAsGuest {
+	BTSignInOperation *op = [[BTSignInOperation alloc] initWithUserName:[[BTApplicationContext sharedInstance] guestUsername]
+                                                               password:[[BTApplicationContext sharedInstance] guestPassword]
+                                                             successSel:@selector(guestSignInSucceeded)
+                                                             failureSel:@selector(guestSignInFailedWithError:) target:self];
     [[ATNetworkOperationManager sharedInstance] submitNetworkOperation:op];
+}
+
+- (void)guestSignInSucceeded {
+	BTSignUpOperation *op = [[BTSignUpOperation alloc] initWithUserName:self.emailTextField.text
+															   password:self.passwordTextField.text
+																   date:self.dateTextField.text gender:0
+															 successSel:@selector(successfulSignUpHandler:)
+															 failureSel:@selector(failedSignUpHandler:) target:self];
+	//    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
+	//    [del.networkOperationManager submitNetworkOperation:op];
+    [[ATNetworkOperationManager sharedInstance] submitNetworkOperation:op];
+}
+
+- (void)guestSignInFailedWithError:(NSError *)error {
+	NSLog(@"Fail: %@", error);
 }
 
 - (void)successfulSignUpHandler:(NSDictionary *)userInfo {

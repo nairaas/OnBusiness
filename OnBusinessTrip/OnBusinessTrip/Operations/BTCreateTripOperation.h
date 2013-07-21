@@ -8,7 +8,7 @@
 
 #import <AtTaskConnector/AtTaskConnector.h>
 
-@interface BTCreateTripOperation : ATAPICreateObjectOperation
+@interface BTCreateTripOperation : ATAPIPostOperation
 
 - (id)initWithProfileID:(NSString *)uID location:(NSString *)lID startDate:(NSDate *)startDate endDate:(NSDate *)endDate successSel:(SEL)successSel failureSel:(SEL)failureSel target:(id)target;
 

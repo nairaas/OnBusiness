@@ -8,7 +8,7 @@
 
 #import <AtTaskConnector/AtTaskConnector.h>
 
-@interface BTGetSearchOperation : ATAPIGetByIDOperation
+@interface BTGetSearchOperation : ATAPIGetOperation
 
 - (id)initWithProfileID:(NSString *)profileID successSel:(SEL)successSel failureSel:(SEL)failureSel target:(id)target;
 

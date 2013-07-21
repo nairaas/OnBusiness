@@ -23,6 +23,19 @@ static NSString *const kJSONData = @"data";
 @synthesize output = _output;
 @synthesize inputData = _inputData;
 
+- (id)initWithURIPath:(NSString *)path completionHandler:(ATOperationHandler)completionHandler {
+	self = [self initWithURIPath:path completionHandler:completionHandler failureHandler:nil];
+	return self;
+}
+
+- (id)initWithURIPath:(NSString *)path completionHandler:(ATOperationHandler)completionHandler failureHandler:(ATOperationHandler)failureHandler {
+	self = [super initWithCompletionHandler:completionHandler failureHandler:failureHandler];
+	if (self) {
+		self.URIPath = path;
+	}
+	return self;
+}
+
 #pragma mark - Custom accessors
 
 - (id)inputData {
@@ -35,9 +48,9 @@ static NSString *const kJSONData = @"data";
 
 #pragma mark - Provide info for request creation
 
-- (NSString *)URIPath {
-	return @"";
-}
+//- (NSString *)URIPath {
+//	return @"";
+//}
 
 - (void)propagateOutput {
 	id output = self.output;
@@ -100,6 +113,13 @@ static NSString *const kJSONData = @"data";
         self.output = jsonObject;
     }
 	return (self.error == nil);
+}
+
+- (NSString *)HTTPHeaderForKey:(NSString *)key {
+	if ([key isEqualToString:@"Content-Type"]) {
+		return @"application/json";
+	}
+	return nil;
 }
 
 @end

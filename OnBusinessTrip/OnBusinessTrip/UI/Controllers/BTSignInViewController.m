@@ -47,6 +47,7 @@
 }
 
 - (IBAction)signIn:(id)sender {
+	NSLog(@"TTT: %@", self.emailTextField.text);
     BTSignInOperation *op = [[BTSignInOperation alloc] initWithUserName:self.emailTextField.text //self.emailTextField.text
                                                                password:self.passwordTextField.text //self.passwordTextField.text
                                                              successSel:@selector(signInSucceeded)

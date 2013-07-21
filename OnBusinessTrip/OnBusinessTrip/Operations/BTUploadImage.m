@@ -38,8 +38,7 @@
     b = [NSString stringWithFormat:@"%@--%@--%@", CRLF, @"-------------V2ymHFg03ehbqgZCaKO6jy", CRLF];
 	[result appendData:[b dataUsingEncoding:NSUTF8StringEncoding]];
 //    NSLog(@"Ress: %@", result);
-        return [super initWithObjectCode:@"photo/profile/224" inputData:result fields:nil completionHandler:successHandler
-                          failureHandler:failureHandler];
+	return [super initWithURIPath:@"photo/profile/224" inputData:result completionHandler:successHandler failureHandler:failureHandler];
 }
 
 @end

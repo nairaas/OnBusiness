@@ -11,17 +11,11 @@
 @implementation NSMutableString (AtTaskConnector)
 
 - (void)appendURLParameterWithName:(NSString *)name value:(id)value {
-	if ([name isEqualToString:@"updates"] && [value isKindOfClass:[NSDictionary class]]) {
-		NSError *error = nil;
-		NSData *jsonData = [NSJSONSerialization dataWithJSONObject:value options:0 error:&error];
-		if (error) {
-			NSLog(@"Error creating JSON Updates: %@", error.localizedDescription);
-			return;
+	if ([value isKindOfClass:[NSDictionary class]]) {
+		for (id key in [value allKeys]) {
+			[self appendURLParameterWithName:key value:[value objectForKey:key]];
 		}
-		NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-		[self appendURLParameterWithName:name value:jsonString];
-	}
-	if ([value isKindOfClass:[NSArray class]]) {
+	} else if ([value isKindOfClass:[NSArray class]]) {
 		for (id item in (NSArray *)value) {
 			[self appendURLParameterWithName:name value:item];
 		}
@@ -29,7 +23,7 @@
 		if ([self length] > 0) {
 			[self appendString:@"&"];
 		}
-		[self appendFormat:@"%@=%@", name, [self URLEncodeValue:value]];
+		[self appendFormat:@"%@=%@", name, value];//[self URLEncodeValue:value]];
 	}
 }
 

@@ -18,6 +18,7 @@
 	ATOperationHandler failureHandler = ^(ATOperation *operation) {
 		[OperationHelper invokeSelector:failureSel onTarget:target withObject:operation.error forID:nil];
 	};
+	NSLog(@"user: %@ passs: %@", email, pass);
     return [super initWithUsername:email password:pass completionHandler:successHandler failureHandler:failureHandler];
 }
 

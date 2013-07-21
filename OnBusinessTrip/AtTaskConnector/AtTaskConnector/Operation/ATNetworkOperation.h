@@ -21,7 +21,9 @@ extern NSString *const kHTTPMethodHead;
 @property (nonatomic, readonly) NSData *data;
 @property (nonatomic, strong) NSURLConnection *connection;
 
-- (NSString *)URIPath;
+@property (nonatomic, strong) NSString *URIPath;
+
+//- (NSString *)URIPath;
 - (NSString *)URIQuery;
 - (NSString *)HTTPMethod;
 - (NSDictionary *)HTTPHeaders;
