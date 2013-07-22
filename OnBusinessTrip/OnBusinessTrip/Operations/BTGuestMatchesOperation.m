@@ -22,8 +22,10 @@
 	};
     
     NSDictionary *search = [NSDictionary dictionaryWithObjectsAndKeys:@"18", @"ageFrom", @"65", @"ageTo", @"1", @"dating", @"1", @"gender", @"1", @"social", nil];
+	NSDictionary *location = [NSDictionary dictionaryWithObjectsAndKeys:@"The Netherlands", @"country", @"Amsterdam", @"city", nil];
+
 //    NSDictionary *trip = [NSDictionary dictionaryWithObjectsAndKeys:@"2013-06-20T00:00:00", @"startDate", @"2013-06-25T00:00:00", @"endDate", @"83", @"locationId", nil];
-	return [super initWithURIPath:@"/match/guest/search" inputData:[NSDictionary dictionaryWithObjectsAndKeys:search, @"search", trip, @"trip", nil]
+	return [super initWithURIPath:@"/match/guest/search" inputData:[NSDictionary dictionaryWithObjectsAndKeys:search, @"search", trip, @"trip", location, @"location", nil]
 				completionHandler:successHandler
 				   failureHandler:failureHandler];
 }

@@ -33,8 +33,8 @@
     [super viewDidLoad];
     UIImage *navBarBg = [UIImage imageNamed:@"nav_bar_bg.png"];
 	[self.navigationController.navigationBar setBackgroundImage:navBarBg forBarMetrics:UIBarMetricsDefault];
-	NSDictionary *location = [NSDictionary dictionaryWithObjectsAndKeys:@"The Netherlands", @"country", @"Amsterdam", @"city", nil];
-	NSDictionary *trip = [NSDictionary dictionaryWithObjectsAndKeys:@"2013-06-20T00:00:00", @"startDate", @"2013-06-25T00:00:00", @"endDate", location, @"location", nil];
+//	NSDictionary *location = [NSDictionary dictionaryWithObjectsAndKeys:@"The Netherlands", @"country", @"Amsterdam", @"city", nil];
+	NSDictionary *trip = [NSDictionary dictionaryWithObjectsAndKeys:@"2013-06-20T00:00:00", @"startDate", @"2013-06-25T00:00:00", @"endDate", nil]; //]location, @"location", nil];
 
 	BTGuestMatchesOperation *op = [[BTGuestMatchesOperation alloc] initWithTrip:trip successSel:@selector(searchSucceeded:) failureSel:@selector(searchFailedWithError:) target:self];
 	//    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
