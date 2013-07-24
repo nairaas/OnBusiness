@@ -55,7 +55,10 @@
 }
 
 - (id)HTTPBody {
-	return [NSJSONSerialization dataWithJSONObject:self.inputData options:0 error:nil];
+	if ([self.inputData isKindOfClass:[NSDictionary class]]) {
+		return [NSJSONSerialization dataWithJSONObject:self.inputData options:0 error:nil];
+	}
+	return self.inputData;
 }
 
 @end

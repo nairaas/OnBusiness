@@ -88,4 +88,8 @@
 	return [query copy];
 }
 
+- (NSString *)HTTPMethod {
+	return kHTTPMethodGet;
+}
+
 @end

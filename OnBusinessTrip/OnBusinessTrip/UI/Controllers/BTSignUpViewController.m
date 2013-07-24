@@ -94,16 +94,13 @@
  */
 //    BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
 	BTGetUserProfileOperation *opp = [[BTGetUserProfileOperation alloc] initWithProfileID:[profile objectForKey:@"id"] successSel:@selector(profileRetrieved:) failureSel:@selector(profileRetrievalFailed:) target:self];
-//	[del.networkOperationManager submitNetworkOperation:opp];
 	[[ATNetworkOperationManager sharedInstance] submitNetworkOperation:opp];
 	
 	BTGetSearchOperation *op = [[BTGetSearchOperation alloc] initWithProfileID:[profile objectForKey:@"id"] successSel:@selector(searchSucceeded:) failureSel:@selector(searchFailedWithError:) target:self];
-//    [del.networkOperationManager submitNetworkOperation:op];
 	[[ATNetworkOperationManager sharedInstance] submitNetworkOperation:op];
     
     BTUploadImageOperation *upload = [[BTUploadImageOperation alloc] initWithProfileID:@"11" successSel:@selector(imageUploaded:) failureSel:@selector(imageUploadingFailed:) target:self];
-//    [del.networkOperationManager submitNetworkOperation:upload];
-	[[ATNetworkOperationManager sharedInstance] submitNetworkOperation:upload];
+//	[[ATNetworkOperationManager sharedInstance] submitNetworkOperation:upload];
 }
 
 - (void)profileCreationFailed:(NSError *)error {

@@ -9,7 +9,7 @@
 #import "ATAPILoginOperation.h"
 #import "NSMutableString+AtTaskConnector.h"
 
-static NSString *const kInputUsername = @"email";
+static NSString *const kInputUsername = @"username";
 static NSString *const kInputPassword = @"password";
 
 static NSString *const kParameterUsername = @"username";
@@ -130,7 +130,8 @@ static NSString *const kOutputRefreshToken = @"refresh_token";
 - (id)HTTPBody {
 	NSMutableString *body = [[NSMutableString alloc] init];
 	[body appendURLParameterWithName:nil value:self.inputData];
-	return @"client_id=obt-ios-app-client&client_secret=cf8cc52e-0016-438c-9866-356fc21060b&username=mobile-client&password=0btpa$$w0rd&grant_type=password";
+//	return @"client_id=obt-ios-app-client&client_secret=cf8cc52e-0016-438c-9866-356fc21060b&username=mobile-client&password=0btpa$$w0rd&grant_type=password";
+	NSLog(@"BBBB: %@", body);
 	return [NSString stringWithString:body];
 }
 
