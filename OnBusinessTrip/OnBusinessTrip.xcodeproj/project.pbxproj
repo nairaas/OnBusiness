@@ -12,6 +12,9 @@
 		A50F3DF9172C4CFE00034E85 /* BTFindMatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50F3DF7172C4CFE00034E85 /* BTFindMatchesViewController.m */; };
 		A50F3DFC172C4D8D00034E85 /* BTMatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50F3DFB172C4D8D00034E85 /* BTMatchesViewController.m */; };
 		A50F3DFF172C55D000034E85 /* BTProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50F3DFE172C55D000034E85 /* BTProfileViewController.m */; };
+		A5607D6917A31BD600517490 /* BTUpdateUserSearchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A5607D6817A31BD600517490 /* BTUpdateUserSearchOperation.m */; };
+		A5607D6D17A45E9000517490 /* BTGetSettingsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A5607D6C17A45E9000517490 /* BTGetSettingsOperation.m */; };
+		A5607D7017A45EA800517490 /* BTUpdateSettingsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A5607D6F17A45EA800517490 /* BTUpdateSettingsOperation.m */; };
 		A58F0467178088DD000C357F /* BTGetUserProfileOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A58F0466178088DD000C357F /* BTGetUserProfileOperation.m */; };
 		A598C60F172084D9002E4379 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A598C60E172084D9002E4379 /* UIKit.framework */; };
 		A598C611172084D9002E4379 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A598C610172084D9002E4379 /* Foundation.framework */; };
@@ -105,6 +108,12 @@
 		A50F3DFB172C4D8D00034E85 /* BTMatchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTMatchesViewController.m; sourceTree = "<group>"; };
 		A50F3DFD172C55D000034E85 /* BTProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTProfileViewController.h; sourceTree = "<group>"; };
 		A50F3DFE172C55D000034E85 /* BTProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTProfileViewController.m; sourceTree = "<group>"; };
+		A5607D6717A31BD600517490 /* BTUpdateUserSearchOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUpdateUserSearchOperation.h; sourceTree = "<group>"; };
+		A5607D6817A31BD600517490 /* BTUpdateUserSearchOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUpdateUserSearchOperation.m; sourceTree = "<group>"; };
+		A5607D6B17A45E8F00517490 /* BTGetSettingsOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTGetSettingsOperation.h; sourceTree = "<group>"; };
+		A5607D6C17A45E9000517490 /* BTGetSettingsOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTGetSettingsOperation.m; sourceTree = "<group>"; };
+		A5607D6E17A45EA700517490 /* BTUpdateSettingsOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUpdateSettingsOperation.h; sourceTree = "<group>"; };
+		A5607D6F17A45EA800517490 /* BTUpdateSettingsOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUpdateSettingsOperation.m; sourceTree = "<group>"; };
 		A58F0465178088DD000C357F /* BTGetUserProfileOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTGetUserProfileOperation.h; sourceTree = "<group>"; };
 		A58F0466178088DD000C357F /* BTGetUserProfileOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTGetUserProfileOperation.m; sourceTree = "<group>"; };
 		A598C60B172084D9002E4379 /* OnBusinessTrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnBusinessTrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -371,6 +380,12 @@
 				A59A05241777920D00A1262A /* BTUploadImage.m */,
 				A58F0465178088DD000C357F /* BTGetUserProfileOperation.h */,
 				A58F0466178088DD000C357F /* BTGetUserProfileOperation.m */,
+				A5607D6717A31BD600517490 /* BTUpdateUserSearchOperation.h */,
+				A5607D6817A31BD600517490 /* BTUpdateUserSearchOperation.m */,
+				A5607D6B17A45E8F00517490 /* BTGetSettingsOperation.h */,
+				A5607D6C17A45E9000517490 /* BTGetSettingsOperation.m */,
+				A5607D6E17A45EA700517490 /* BTUpdateSettingsOperation.h */,
+				A5607D6F17A45EA800517490 /* BTUpdateSettingsOperation.m */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -565,6 +580,9 @@
 				A59A05251777920D00A1262A /* BTUploadImage.m in Sources */,
 				A58F0467178088DD000C357F /* BTGetUserProfileOperation.m in Sources */,
 				935EE368179169450008BA9C /* BTApplicationContext.m in Sources */,
+				A5607D6917A31BD600517490 /* BTUpdateUserSearchOperation.m in Sources */,
+				A5607D6D17A45E9000517490 /* BTGetSettingsOperation.m in Sources */,
+				A5607D7017A45EA800517490 /* BTUpdateSettingsOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

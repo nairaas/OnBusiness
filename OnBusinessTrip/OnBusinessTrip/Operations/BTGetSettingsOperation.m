@@ -1,15 +1,15 @@
 //
-//  BTGetSearchOperation.m
+//  BTGetSettingsOperation.m
 //  OnBusinessTrip
 //
-//  Created by Naira on 6/2/13.
+//  Created by Naira on 7/27/13.
 //
 //
 
-#import "BTGetSearchOperation.h"
+#import "BTGetSettingsOperation.h"
 #import "OperationHelper.h"
 
-@implementation BTGetSearchOperation
+@implementation BTGetSettingsOperation
 
 - (id)initWithProfileID:(NSString *)profileID successSel:(SEL)successSel failureSel:(SEL)failureSel target:(id)target {
     ATOperationHandler successHandler = ^(ATOperation *operation) {
@@ -19,7 +19,7 @@
 	ATOperationHandler failureHandler = ^(ATOperation *operation) {
 		[OperationHelper invokeSelector:failureSel onTarget:target withObject:operation.error forID:nil];
 	};
-	return [super initWithURIPath:[NSString stringWithFormat:@"/mysearch/%@", profileID] completionHandler:successHandler failureHandler:failureHandler];
+	return [super initWithURIPath:[NSString stringWithFormat:@"/settings/%@", profileID] completionHandler:successHandler failureHandler:failureHandler];
 }
 
 @end

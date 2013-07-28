@@ -9,8 +9,6 @@
 #import "ATAPIPutOperation.h"
 #import "NSMutableString+AtTaskConnector.h"
 
-static NSString *kUpdateFields = @"updateFields";
-
 @implementation ATAPIPutOperation
 
 - (id)initWithURIPath:(NSString *)path inputData:(NSDictionary *)inputData {
@@ -63,6 +61,13 @@ static NSString *kUpdateFields = @"updateFields";
 
 - (NSString *)HTTPMethod {
 	return kHTTPMethodPut;
+}
+
+- (id)HTTPBody {
+	if ([self.inputData isKindOfClass:[NSDictionary class]]) {
+		return [NSJSONSerialization dataWithJSONObject:self.inputData options:0 error:nil];
+	}
+	return self.inputData;
 }
 
 @end

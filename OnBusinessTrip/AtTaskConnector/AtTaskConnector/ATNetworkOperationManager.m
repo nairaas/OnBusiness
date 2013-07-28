@@ -261,7 +261,6 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 	NSMutableDictionary *HTTPHeaders = [[NSMutableDictionary alloc] init];
 	[HTTPHeaders addEntriesFromDictionary:[operation HTTPHeaders]];
 	NSMutableString *query = [[NSMutableString alloc] initWithString:[operation URIQuery]];
-//	NSString *HTTPMethod = [operation HTTPMethod];
 	if (self.accessToken) {
 		if (self.authenticationMethod == ATServiceAuthenticationMethodParameter) {
 			[query appendURLParameterWithName:kAccessTokenParameterName value:self.accessToken];
@@ -270,34 +269,7 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 		}
 	}
 	[request setHTTPMethod:[operation HTTPMethod]];
-//	BOOL usePost = (self.usePostForAPI && [operation isKindOfClass:[ATAPIOperation class]]);
-//	if (usePost) {
-//		[request setHTTPMethod:kHTTPMethodPost];
-//		[query appendURLParameterWithName:kMethodParameterName value:HTTPMethod];
-//	} else {
-//		[request setHTTPMethod:HTTPMethod];
-//	}
-/*	if (usePost) {
-		if ([query length] > 0) {
-            NSError *error;
-            id input = [(ATAPIOperation *)operation inputData];
-            if (input) {
-                NSData *dd = nil;
- 
-//				NSString *ss = ;
-//				dd = [ss dataUsingEncoding:NSUTF8StringEncoding];
-//                [request setHTTPBody:dd];
-            }
 
-            //[request setHTTPBody:dd];
-		}
-	} else {
-		if ([query length] > 0) {
-			[urlString appendFormat:@"?%@", query];
-		}
-		[request setHTTPBody:[operation HTTPBody]];
-	}
- */
 	if ([query length] > 0) {
 		[urlString appendFormat:@"?%@", query];
 	}
@@ -308,7 +280,6 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 	[request setHTTPBody:body];
 	NSURL *u = [[NSURL alloc] initWithString:urlString];
 	[request setURL:u];
-//	[HTTPHeaders setObject:@"gzip" forKey:@"Accept-Encoding"];
 	NSString *contentType = [operation HTTPHeaderForKey:@"Content-Type"];
 	if (contentType != nil) {
 		[HTTPHeaders setObject:contentType forKey:@"Content-Type"];
@@ -325,8 +296,7 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 		[HTTPHeaders setObject:self.userAgent forKey:@"User-Agent"];
 	}
 	[request setAllHTTPHeaderFields:[HTTPHeaders copy]];
-//	return [request copy];
-	return request;
+	return [request copy];
 }
 
 #pragma mark - URL connection delegate
