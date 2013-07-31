@@ -14,7 +14,7 @@
  * Parses @param data to an object and returns created object
  * Default implementation returns a copy of @param data
  */
-+ (id)parseData:(id)data;
++ (id)parseData:(id)data to:(NSString *)destinationObjectType;
 
 /**
  * Creates a data representation of @param object and returns it

@@ -12,13 +12,13 @@
 
 @implementation ATJSONCoreDataParser
 
-+ (id)parseData:(id)data {
++ (id)parseData:(id)data to:(NSString *)destinationObjectType {
 	id result = nil;
 	if ([data isKindOfClass:[NSArray class]]) {
 		// TODO: Review if isNewObjects with NO is right option, maybe we can use YES which will be faster
 		result = [ATJSONToCoreDataParser parseArray:data isNewObjects:NO];
 	} else if ([data isKindOfClass:[NSDictionary class]]) {
-		result = [ATJSONToCoreDataParser parseDictionary:data];
+		result = [ATJSONToCoreDataParser parseDictionary:data to:destinationObjectType];
 	}
 	return result;
 }

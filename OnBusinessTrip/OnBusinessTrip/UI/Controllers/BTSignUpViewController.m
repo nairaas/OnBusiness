@@ -18,12 +18,14 @@
 #import "BTUploadImage.h"
 #import "BTGetUserProfileOperation.h"
 #import "BTUpdateUserSearchOperation.h"
+#import "Profile.h"
+#import "OperationHelper.h"
 
 #import <AtTaskConnector/AtTaskConnector.h>
 
 @interface BTSignUpViewController ()
 
-@property (nonatomic, strong) NSDictionary *profile;
+@property (nonatomic, strong) Profile *profile;
 
 @end
 
@@ -90,9 +92,9 @@
     NSLog(@"Error: %@", error);
 }
 
-- (void)profileCreated:(NSDictionary *)profile {
-    NSLog(@"Profile: %@", profile);
-	self.profile = profile;
+- (void)profileCreated:(id)profileID {
+    NSLog(@"Profile: %@", profileID);
+	self.profile = (Profile *)[OperationHelper objectWithID:profileID];
 /*    BTCreateTripOperation *op = [[BTCreateTripOperation alloc] initWithProfileID:[profile objectForKey:@"id"] location:<#(NSString *)#> startDate:<#(NSDate *)#> endDate:<#(NSDate *)#> successSel:<#(SEL)#> failureSel:<#(SEL)#> target:<#(id)#>];
     BTAppDelegate *del = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
     [del.networkOperationManager submitNetworkOperation:op];
@@ -115,10 +117,12 @@
 }
 
 - (void)guestSignInSucceeded1 {
-	BTGetUserProfileOperation *opp = [[BTGetUserProfileOperation alloc] initWithProfileID:[self.profile objectForKey:@"id"] successSel:@selector(profileRetrieved:) failureSel:@selector(profileRetrievalFailed:) target:self];
-//	[[ATNetworkOperationManager sharedInstance] submitNetworkOperation:opp];
+	NSLog(@"sss: %@ - %@", self.profile, self.profile.profileID);
 	
-	BTGetSearchOperation *op = [[BTGetSearchOperation alloc] initWithProfileID:[self.profile objectForKey:@"id"] successSel:@selector(searchSucceeded:) failureSel:@selector(searchFailedWithError:) target:self];
+	BTGetUserProfileOperation *opp = [[BTGetUserProfileOperation alloc] initWithProfileID:[self.profile profileID] successSel:@selector(profileRetrieved:) failureSel:@selector(profileRetrievalFailed:) target:self];
+	[[ATNetworkOperationManager sharedInstance] submitNetworkOperation:opp];
+	
+	BTGetSearchOperation *op = [[BTGetSearchOperation alloc] initWithProfileID:[self.profile profileID] successSel:@selector(searchSucceeded:) failureSel:@selector(searchFailedWithError:) target:self];
 	[[ATNetworkOperationManager sharedInstance] submitNetworkOperation:op];
 
 /*    BTUploadImageOperation *upload = [[BTUploadImageOperation alloc] initWithProfileID:@"11" successSel:@selector(imageUploaded:) failureSel:@selector(imageUploadingFailed:) target:self];
@@ -126,7 +130,7 @@
 */	
 }
 
-- (void)profileRetrieved:(NSDictionary *)profile {
+- (void)profileRetrieved:(Profile *)profile {
     NSLog(@"xxx: %@", profile);
 }
 
@@ -139,7 +143,7 @@
 	NSMutableDictionary *d = [NSMutableDictionary dictionaryWithDictionary:dictionary];
 	[d setValue:@"0" forKey:@"social"];
 //	[d removeObjectForKey:@"userId"];
-	BTUpdateUserSearchOperation *op = [[BTUpdateUserSearchOperation alloc] initWithProfileID:[self.profile objectForKey:@"id"] search:d successSel:@selector(searchUpdateSucceeded:) failureSel:@selector(searchUpdateFailedWithError) target:self];
+	BTUpdateUserSearchOperation *op = [[BTUpdateUserSearchOperation alloc] initWithProfileID:[self.profile profileID] search:d successSel:@selector(searchUpdateSucceeded:) failureSel:@selector(searchUpdateFailedWithError) target:self];
 	[[ATNetworkOperationManager sharedInstance] submitNetworkOperation:op];
 }
 

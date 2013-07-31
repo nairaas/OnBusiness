@@ -10,7 +10,7 @@
 
 @implementation ATDataParser
 
-+ (id)parseData:(id)data {
++ (id)parseData:(id)data to:(NSString *)destinationObjectType {
 	return [data copy];
 }
 

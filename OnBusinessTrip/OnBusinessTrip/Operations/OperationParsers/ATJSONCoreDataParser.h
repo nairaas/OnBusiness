@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <AtTaskConnector/AtTaskConnector.h>
+#import "AtTaskConnector.h"
 
 @interface ATJSONCoreDataParser : ATDataParser
 

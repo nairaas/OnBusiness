@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		935EE368179169450008BA9C /* BTApplicationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 935EE367179169450008BA9C /* BTApplicationContext.m */; };
+		93EFA2F217A5395A00E3F78A /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EFA2EF17A5395A00E3F78A /* DateUtil.m */; };
+		93EFA2F317A5395A00E3F78A /* NSData+Conversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EFA2F117A5395A00E3F78A /* NSData+Conversion.m */; };
+		93EFA2FA17A5476900E3F78A /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EFA2F917A5476900E3F78A /* Location.m */; };
+		93EFA30017A547D100E3F78A /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EFA2FF17A547D100E3F78A /* Profile.m */; };
+		93EFA30317A547DF00E3F78A /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EFA30217A547DF00E3F78A /* Search.m */; };
+		93EFA30617A547F300E3F78A /* Trip.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EFA30517A547F300E3F78A /* Trip.m */; };
+		93EFA30917A5484700E3F78A /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EFA30817A5484600E3F78A /* UserSettings.m */; };
 		A50F3DF8172C4CFE00034E85 /* BTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A50F3DF5172C4CFE00034E85 /* BTAppDelegate.m */; };
 		A50F3DF9172C4CFE00034E85 /* BTFindMatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50F3DF7172C4CFE00034E85 /* BTFindMatchesViewController.m */; };
 		A50F3DFC172C4D8D00034E85 /* BTMatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50F3DFB172C4D8D00034E85 /* BTMatchesViewController.m */; };
@@ -100,6 +107,20 @@
 /* Begin PBXFileReference section */
 		935EE366179169450008BA9C /* BTApplicationContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTApplicationContext.h; sourceTree = "<group>"; };
 		935EE367179169450008BA9C /* BTApplicationContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTApplicationContext.m; sourceTree = "<group>"; };
+		93EFA2EE17A5395A00E3F78A /* DateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtil.h; sourceTree = "<group>"; };
+		93EFA2EF17A5395A00E3F78A /* DateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtil.m; sourceTree = "<group>"; };
+		93EFA2F017A5395A00E3F78A /* NSData+Conversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Conversion.h"; sourceTree = "<group>"; };
+		93EFA2F117A5395A00E3F78A /* NSData+Conversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Conversion.m"; sourceTree = "<group>"; };
+		93EFA2F817A5476900E3F78A /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		93EFA2F917A5476900E3F78A /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		93EFA2FE17A547D100E3F78A /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		93EFA2FF17A547D100E3F78A /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
+		93EFA30117A547DF00E3F78A /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
+		93EFA30217A547DF00E3F78A /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Search.m; sourceTree = "<group>"; };
+		93EFA30417A547F300E3F78A /* Trip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trip.h; sourceTree = "<group>"; };
+		93EFA30517A547F300E3F78A /* Trip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trip.m; sourceTree = "<group>"; };
+		93EFA30717A5484600E3F78A /* UserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettings.h; sourceTree = "<group>"; };
+		93EFA30817A5484600E3F78A /* UserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettings.m; sourceTree = "<group>"; };
 		A50F3DF4172C4CFE00034E85 /* BTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTAppDelegate.h; sourceTree = "<group>"; };
 		A50F3DF5172C4CFE00034E85 /* BTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTAppDelegate.m; sourceTree = "<group>"; };
 		A50F3DF6172C4CFE00034E85 /* BTFindMatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTFindMatchesViewController.h; sourceTree = "<group>"; };
@@ -343,6 +364,10 @@
 		A5CC1F301753DB6E00B3D7C3 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				93EFA2EE17A5395A00E3F78A /* DateUtil.h */,
+				93EFA2EF17A5395A00E3F78A /* DateUtil.m */,
+				93EFA2F017A5395A00E3F78A /* NSData+Conversion.h */,
+				93EFA2F117A5395A00E3F78A /* NSData+Conversion.m */,
 				A5CC1F9B17665FED00B3D7C3 /* ColorUtil.h */,
 				A5CC1F9C17665FED00B3D7C3 /* ColorUtil.m */,
 				A5CC1F9D17665FED00B3D7C3 /* Constants.h */,
@@ -411,6 +436,16 @@
 				A5CC1F84176324F000B3D7C3 /* BTSearch.m */,
 				A5CC1F86176487F100B3D7C3 /* BTLocation.h */,
 				A5CC1F87176487F100B3D7C3 /* BTLocation.m */,
+				93EFA2F817A5476900E3F78A /* Location.h */,
+				93EFA2F917A5476900E3F78A /* Location.m */,
+				93EFA2FE17A547D100E3F78A /* Profile.h */,
+				93EFA2FF17A547D100E3F78A /* Profile.m */,
+				93EFA30117A547DF00E3F78A /* Search.h */,
+				93EFA30217A547DF00E3F78A /* Search.m */,
+				93EFA30417A547F300E3F78A /* Trip.h */,
+				93EFA30517A547F300E3F78A /* Trip.m */,
+				93EFA30717A5484600E3F78A /* UserSettings.h */,
+				93EFA30817A5484600E3F78A /* UserSettings.m */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -583,6 +618,13 @@
 				A5607D6917A31BD600517490 /* BTUpdateUserSearchOperation.m in Sources */,
 				A5607D6D17A45E9000517490 /* BTGetSettingsOperation.m in Sources */,
 				A5607D7017A45EA800517490 /* BTUpdateSettingsOperation.m in Sources */,
+				93EFA2F217A5395A00E3F78A /* DateUtil.m in Sources */,
+				93EFA2F317A5395A00E3F78A /* NSData+Conversion.m in Sources */,
+				93EFA2FA17A5476900E3F78A /* Location.m in Sources */,
+				93EFA30017A547D100E3F78A /* Profile.m in Sources */,
+				93EFA30317A547DF00E3F78A /* Search.m in Sources */,
+				93EFA30617A547F300E3F78A /* Trip.m in Sources */,
+				93EFA30917A5484700E3F78A /* UserSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

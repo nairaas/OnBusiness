@@ -7,6 +7,7 @@
 //
 
 #import "BTAppDelegate.h"
+#import "ATJSONCoreDataParser.h"
 
 @implementation BTAppDelegate
 
@@ -33,6 +34,7 @@
 	networkOperationManager.authenticationMethod = ATServiceAuthenticationMethodHeader;
 	networkOperationManager.serviceHost = @"http://ec2-54-214-166-237.us-west-2.compute.amazonaws.com:8080/OnBusinessTrip";
 	networkOperationManager.usePostForAPI = YES;
+	networkOperationManager.dataParser = [ATJSONCoreDataParser class];
 
  /*   ATOperationHandler successHandler = ^(ATOperation *operation) {
 //		id data = [(ATAPIOperation *)operation jsonData];

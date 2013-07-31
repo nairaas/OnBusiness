@@ -8,6 +8,7 @@
 
 #import "ATJSONToCoreDataParser.h"
 #import "OperationHelper.h"
+#import "BTAppDelegate.h"
 //#import "Constants.h"
 //#import "Project.h"
 //#import "User.h"
@@ -26,27 +27,27 @@ static NSString *const kAssignedToIDKey = @"assignedToID";
 
 @interface ATJSONToCoreDataParser ()
 
-+ (NSDictionary *)objectsMapping;
-+ (NSEntityDescription *)entityOfData:(NSDictionary *)data;
-+ (NSArray *)filterData:(NSArray *)data forEntity:(NSEntityDescription *)entity;
-+ (NSArray *)adjustPortfoliosData:(NSArray *)portfolios;
-+ (void)deleteProjects;
-+ (void)deletePorfolios;
+//+ (NSDictionary *)objectsMapping;
++ (NSEntityDescription *)entityOfObject:(NSString *)objectType;
+//+ (NSArray *)filterData:(NSArray *)data forEntity:(NSEntityDescription *)entity;
+//+ (NSArray *)adjustPortfoliosData:(NSArray *)portfolios;
+//+ (void)deleteProjects;
+//+ (void)deletePorfolios;
 
 @end
 
-
 @implementation ATJSONToCoreDataParser
-/*
-+ (id)parseDictionary:(NSDictionary *)data {
-	AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
++ (id)parseDictionary:(NSDictionary *)data to:(NSString *)destinationObjectType {
+	BTAppDelegate *app = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
 	@try {
-		NSEntityDescription *entity = [ATJSONToCoreDataParser entityOfData:data];
+		NSEntityDescription *entity = [ATJSONToCoreDataParser entityOfObject:destinationObjectType];
 		if (entity) {
 			NSManagedObject *object = [self parseDictionary:data toManagedObjectsWithEntity:entity isNewObject:NO];
 			[app saveContext];
 			[app.managedObjectContext reset];
 			return [object objectID];
+//			return object;
 		}
 	}
 	@catch (NSException *exception) {
@@ -56,8 +57,9 @@ static NSString *const kAssignedToIDKey = @"assignedToID";
 	return [NSDictionary dictionaryWithDictionary:data];
 }
 
+/*
 + (NSArray *)parseArray:(NSArray *)data isNewObjects:(BOOL)isNewObjects {
-	AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+	BTAppDelegate *app = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
 	@try {
 		if ([data count] > 0) {
 			NSDictionary *d = [data objectAtIndex:0];
@@ -78,10 +80,12 @@ static NSString *const kAssignedToIDKey = @"assignedToID";
 	}
 	return [NSArray array];
 }
+ */
 
+/*
 + (void)parseReport:(id)report withType:(ATReportType)type name:(NSString *)reportName forManagedObjectWithName:(NSString *)name ID:(NSString *)ID {
 	@autoreleasepool {
-		AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+		BTAppDelegate *app = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
 		@try {
 			NSEntityDescription *entity = [NSEntityDescription entityForName:name inManagedObjectContext:app.managedObjectContext];
 			switch (type) {
@@ -107,10 +111,12 @@ static NSString *const kAssignedToIDKey = @"assignedToID";
 		}
 	}
 }
+ */
 
+/*
 + (void)parseProjectsData:(NSArray *)data {
 	@autoreleasepool {
-		AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+		BTAppDelegate *app = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
 		@try {
 			[self deletePorfolios];
 			[self deleteProjects];
@@ -136,7 +142,9 @@ static NSString *const kAssignedToIDKey = @"assignedToID";
 		}
 	}
 }
+ */
 
+/*
 + (void)parseTasksData:(NSArray *)data forProjectWithID:(NSString *)pID {
 	@autoreleasepool {
 		AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -168,7 +176,8 @@ static NSString *const kAssignedToIDKey = @"assignedToID";
 		}
 	}
 }
-
+*/
+/*
 + (void)parseTeamData:(NSArray *)data forProjectWithID:(NSString *)pID {
 	@autoreleasepool {
 		AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -212,9 +221,11 @@ static NSString *const kAssignedToIDKey = @"assignedToID";
 		}
 	}
 }
+ */
 
 #pragma mark - Private methods
 
+/*
 + (NSDictionary *)objectsMapping {
 	static NSDictionary *objMapping = nil;
 	if (objMapping == nil) {
@@ -224,17 +235,72 @@ static NSString *const kAssignedToIDKey = @"assignedToID";
 	}
 	return objMapping;
 }
+ */
 
-+ (NSEntityDescription *)entityOfData:(NSDictionary *)data {
-	NSString *objType = [data objectForKey:kObjectTypeKey];
-	if (objType) {
-		AppDelegate *app = [[UIApplication sharedApplication] delegate];
-		NSEntityDescription *entity = [NSEntityDescription entityForName:[[ATJSONToCoreDataParser objectsMapping] objectForKey:objType]
-												  inManagedObjectContext:app.managedObjectContext];
-		return entity;
++ (NSEntityDescription *)entityOfObject:(NSString *)objectType {
+	BTAppDelegate *app = [[UIApplication sharedApplication] delegate];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:objectType
+											  inManagedObjectContext:app.managedObjectContext];
+	return entity;
+}
+
+/*
++ (NSArray *)filterData:(NSArray *)data forEntity:(NSEntityDescription *)entity {
+	NSMutableArray *filteredData = [[NSMutableArray alloc] init];
+	if ([[entity name] isEqualToString:kUpdateEntityName]) {
+		for (NSDictionary *d in data) {
+			if ([[d objectForKey:@"updateType"] isEqual:@"note"] &&
+				[[[d objectForKey:@"updateNote"] objectForKey:@"objID"] isEqual:[NSNull null]]) {
+				[filteredData addObject:d];
+			}
+		}
+	} else {
+		[filteredData addObjectsFromArray:data];
 	}
-	return nil;
+	return filteredData;
 }
 */
+
+/*
++ (NSArray *)adjustPortfoliosData:(NSArray *)portfolios {
+	NSMutableArray *a = [[NSMutableArray alloc] init];
+	for (NSDictionary *d in portfolios) {
+		NSMutableDictionary *d1 = [d mutableCopy];
+		[d1 setValue:@"YES" forKey:kBelongsToBaseSetAttributeName];
+		[a addObject:d1];
+	}
+	return a;
+}
+ */
+
+/*
++ (void)deleteProjects {
+	AppDelegate *app = [[UIApplication sharedApplication] delegate];
+	NSFetchRequest *projectsRequest = [app.managedObjectModel fetchRequestTemplateForName:@"FetchAllProjects"];
+	NSError * __autoreleasing error = nil;
+	NSArray *projects = [app.managedObjectContext executeFetchRequest:projectsRequest error:&error];
+	if (error) {
+		NSLog(@"Fetching projects failed with error: %@", error);
+	}
+	for (id p in projects) {
+		[app.managedObjectContext deleteObject:p];
+	}
+}
+*/
+
+/*
++ (void)deletePorfolios {
+	AppDelegate *app = [[UIApplication sharedApplication] delegate];
+	NSFetchRequest *portfoliosRequest = [app.managedObjectModel fetchRequestTemplateForName:@"FetchAllPortfolios"];
+	NSError * __autoreleasing error = nil;
+	NSArray *portfolios = [app.managedObjectContext executeFetchRequest:portfoliosRequest error:&error];
+	if (error) {
+		NSLog(@"Fetching projects failed with error: %@", error);
+	}
+	for (id p in portfolios) {
+		[app.managedObjectContext deleteObject:p];
+	}
+}
+ */
 
 @end

@@ -20,4 +20,6 @@ extern NSString *const kInputFields;
 - (id)initWithURIPath:(NSString *)path completionHandler:(ATOperationHandler)completionHandler;
 - (id)initWithURIPath:(NSString *)path completionHandler:(ATOperationHandler)completionHandler failureHandler:(ATOperationHandler)failureHandler;
 
+- (NSString *)outputObjectType;
+
 @end

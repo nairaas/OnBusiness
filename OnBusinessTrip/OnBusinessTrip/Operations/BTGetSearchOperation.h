@@ -10,6 +10,6 @@
 
 @interface BTGetSearchOperation : ATAPIGetOperation
 
-- (id)initWithProfileID:(NSString *)profileID successSel:(SEL)successSel failureSel:(SEL)failureSel target:(id)target;
+- (id)initWithProfileID:(NSNumber *)profileID successSel:(SEL)successSel failureSel:(SEL)failureSel target:(id)target;
 
 @end

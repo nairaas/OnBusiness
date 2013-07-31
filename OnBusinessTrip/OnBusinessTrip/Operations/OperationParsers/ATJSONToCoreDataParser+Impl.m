@@ -8,15 +8,15 @@
 
 #import "ATJSONToCoreDataParser.h"
 
-/*
+#import "BTAppDelegate.h"
 #import "Constants.h"
 #import "DateUtil.h"
-#import "Priority.h"
-#import "Status.h"
+//#import "Priority.h"
+//#import "Status.h"
 
 #import "NSData+Conversion.h"
 
-static NSString *const kEntityID = @"ID";
+static NSString *const kEntityID = @"id";
 static NSString *const kStatus = @"status";
 static NSString *const kPriority = @"priority";
 
@@ -44,8 +44,8 @@ static NSString *const kPriority = @"priority";
 + (void)fillPriorityEntity:(NSEntityDescription *)entity fromArray:(NSArray *)data;
 + (void)fillStatusEntity:(NSEntityDescription *)entity fromArray:(NSArray *)data;
 
-+ (BOOL)doesPriority:(Priority *)p containsIn:(NSArray *)array;
-+ (BOOL)doesStatus:(Status *)s containsIn:(NSArray *)array;
+//+ (BOOL)doesPriority:(Priority *)p containsIn:(NSArray *)array;
+//+ (BOOL)doesStatus:(Status *)s containsIn:(NSArray *)array;
 
 @end
 
@@ -66,11 +66,11 @@ static NSString *const kPriority = @"priority";
 
 + (NSManagedObject *)parseDictionary:(NSDictionary *)data toManagedObjectsWithEntity:(NSEntityDescription *)entity isNewObject:(BOOL)isNewObject {
 	NSManagedObject *o = nil;
-	AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+	BTAppDelegate *app = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
 	if (isNewObject) {
 		o = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:app.managedObjectContext];
 	} else {
-		NSString *IDKey = [[NSString alloc] initWithFormat:@"%@%@", [[entity name] lowercaseString], kEntityID];
+		NSString *IDKey = [[NSString alloc] initWithFormat:@"%@%@", [[entity name] lowercaseString], [kEntityID uppercaseString]];
 		NSString *ID = [data objectForKey:kEntityID];
 		if (ID) {
 			o = [self managedObjectWithEntity:entity IDKey:IDKey IDValue:ID shouldInsertNew:YES];
@@ -86,9 +86,11 @@ static NSString *const kPriority = @"priority";
 		[self setAttributesToManagedObject:o fromData:data];
 		[self setRelationShipsToManagedObject:o fromData:data];
 	}
+	NSLog(@"OOOO: %@", o);
 	return o;
 }
 
+/*
 + (void)parseReport:(id)report withName:(NSString *)reportName forManagedObjectWithEntity:(NSEntityDescription *)entity ID:(NSString *)ID {
 	if (ID) {
 		NSString *IDKey = [[NSString alloc] initWithFormat:@"%@%@", [[entity name] lowercaseString], kEntityID];
@@ -98,11 +100,12 @@ static NSString *const kPriority = @"priority";
 		}
 	}
 }
+ */
 
 #pragma mark - Private methods
 
 + (NSManagedObject *)managedObjectWithEntity:(NSEntityDescription *)entity IDKey:(NSString *)key IDValue:(NSString *)IDValue shouldInsertNew:(BOOL)shouldInsertNew {
-	AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+	BTAppDelegate *app = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
 	if (key) {
 		NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 		fetchRequest.includesPropertyValues = NO;
@@ -128,9 +131,6 @@ static NSString *const kPriority = @"priority";
 	NSString *IDAttribute = [[NSString alloc] initWithFormat:@"%@%@", entityName, kEntityID];
 	id value = [data objectForKey:kEntityID];
 	[self updateManagedObject:object withValue:value forAttribute:IDAttribute fromAttributesDictionary:attributes];
-	NSString *deletedAttribute = [[NSString alloc] initWithFormat:@"is%@Deleted", [[object entity] name]];
-	value = [data objectForKey:@"isDeleted"];
-	[self updateManagedObject:object withValue:value forAttribute:deletedAttribute fromAttributesDictionary:attributes];
 	NSString *newAttr = nil;
 	for (NSString *attribute in attributes) {
 		value = [data objectForKey:attribute];
@@ -257,6 +257,8 @@ static NSString *const kPriority = @"priority";
 	}
 }
 
+/*
+
 + (void)fillStaticEntity:(NSEntityDescription *)entity fromArray:(NSArray *)data {
 	if ([[entity name] isEqualToString:kPriorityEntityName]) {
 		[self fillPriorityEntity:entity fromArray:data];
@@ -309,7 +311,9 @@ static NSString *const kPriority = @"priority";
 		}
 	}
 }
+ */
 
+/*
 + (BOOL)doesPriority:(Priority *)p containsIn:(NSArray *)array {
 	for (NSDictionary *d in array) {
 		if ([[d valueForKey:kValueKey] isEqual:p.value]) {
@@ -327,7 +331,6 @@ static NSString *const kPriority = @"priority";
 	}
 	return NO;
 }
-
+ */
 
 @end
- */

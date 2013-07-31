@@ -10,6 +10,6 @@
 
 @interface BTUpdateUserSearchOperation : ATAPIPostOperation
 
-- (id)initWithProfileID:(NSString *)profileID search:(NSDictionary *)d successSel:(SEL)successSel failureSel:(SEL)failureSel target:(id)target;
+- (id)initWithProfileID:(NSNumber *)profileID search:(NSDictionary *)d successSel:(SEL)successSel failureSel:(SEL)failureSel target:(id)target;
 
 @end

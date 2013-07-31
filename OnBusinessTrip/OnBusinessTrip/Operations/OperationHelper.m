@@ -7,7 +7,7 @@
 //
 
 #import "OperationHelper.h"
-
+#import "BTAppDelegate.h"
 //#import "Constants.h"
 
 @implementation OperationHelper
@@ -36,9 +36,9 @@
 		[invocation invoke];
 	}
 }
-/*
+
 + (NSManagedObject *)objectWithID:(NSManagedObjectID *)ID {
-	NSManagedObjectContext *context = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+	NSManagedObjectContext *context = [(BTAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
 	return [context objectWithID:ID];
 }
 
@@ -49,7 +49,7 @@
 	}
 	return a;
 }
-
+/*
 + (Project *)projectWithID:(NSString *)projectID {
 	AppDelegate *del = [[UIApplication sharedApplication] delegate];
 	NSFetchRequest *projectRequest = [[NSFetchRequest alloc] initWithEntityName:kProjectEntityName];

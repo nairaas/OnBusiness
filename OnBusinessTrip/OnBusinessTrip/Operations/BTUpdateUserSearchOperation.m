@@ -11,7 +11,7 @@
 
 @implementation BTUpdateUserSearchOperation
 
-- (id)initWithProfileID:(NSString *)profileID search:(NSDictionary *)d successSel:(SEL)successSel failureSel:(SEL)failureSel target:(id)target {
+- (id)initWithProfileID:(NSNumber *)profileID search:(NSDictionary *)d successSel:(SEL)successSel failureSel:(SEL)failureSel target:(id)target {
     ATOperationHandler successHandler = ^(ATOperation *operation) {
 		id result = [(ATAPIOperation *)operation output];
 		[OperationHelper invokeSelector:successSel onTarget:target withObject:result forID:nil];

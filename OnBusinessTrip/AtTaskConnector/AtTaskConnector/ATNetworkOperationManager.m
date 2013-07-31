@@ -341,21 +341,16 @@ static NSString *const kHostSuffix = @".attask-ondemand.com";
 }
 
 - (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
-	NSLog(@"willSendRequestForAuthenticationChallenge");
-
-	[[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
-	/*
 	if ([challenge previousFailureCount] <= 2 ) {
 		NSURLCredential *newCredential = [[NSURLCredential alloc] initWithUser:self.username password:self.password persistence:NSURLCredentialPersistenceForSession];
-//		 credentialWithUser:self.username
-//		 password:self.password
-//		 persistence:NSURLCredentialPersistenceForSession];
+		//		 credentialWithUser:self.username
+		//		 password:self.password
+		//		 persistence:NSURLCredentialPersistenceForSession];
 		[[challenge sender] useCredential:newCredential forAuthenticationChallenge:challenge];
 		[challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
 	} else {
-//		NSLog(@"Failure count %d",[challenge previousFailureCount]);
+		//		NSLog(@"Failure count %d",[challenge previousFailureCount]);
 	}
-	 */
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {

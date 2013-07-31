@@ -11,7 +11,7 @@
 
 @implementation BTGetSearchOperation
 
-- (id)initWithProfileID:(NSString *)profileID successSel:(SEL)successSel failureSel:(SEL)failureSel target:(id)target {
+- (id)initWithProfileID:(NSNumber *)profileID successSel:(SEL)successSel failureSel:(SEL)failureSel target:(id)target {
     ATOperationHandler successHandler = ^(ATOperation *operation) {
 		id result = [(ATAPIOperation *)operation output];
 		[OperationHelper invokeSelector:successSel onTarget:target withObject:result forID:nil];

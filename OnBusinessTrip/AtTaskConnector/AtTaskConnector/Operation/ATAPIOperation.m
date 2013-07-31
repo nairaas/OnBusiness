@@ -110,8 +110,13 @@ static NSString *const kJSONData = @"data";
 		}
 //	}
     if (nil == self.error) {
-        self.output = jsonObject;
-    }
+		NSString *outputType = [self outputObjectType];
+		if (outputType && [outputType length] > 0) {
+			self.output = [parser parseData:jsonObject to:[self outputObjectType]];
+		} else {
+			self.output = jsonObject;
+		}
+	}
 	return (self.error == nil);
 }
 
@@ -119,6 +124,12 @@ static NSString *const kJSONData = @"data";
 	if ([key isEqualToString:@"Content-Type"]) {
 		return @"application/json";
 	}
+	return nil;
+}
+
+#pragma mark - Provide info for Parsing
+
+- (NSString *)outputObjectType {
 	return nil;
 }
 

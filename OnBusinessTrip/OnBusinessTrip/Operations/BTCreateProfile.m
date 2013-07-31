@@ -27,4 +27,10 @@
 	return [super initWithURIPath:@"/profile" inputData:input completionHandler:successHandler failureHandler:failureHandler];
 }
 
+#pragma mark - Provide info for Parsing
+
+- (NSString *)outputObjectType {
+	return @"Profile";
+}
+
 @end

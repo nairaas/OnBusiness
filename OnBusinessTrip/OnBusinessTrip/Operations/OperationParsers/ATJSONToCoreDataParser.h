@@ -16,11 +16,11 @@ typedef enum {
 
 @interface ATJSONToCoreDataParser : NSObject
 
-+ (id)parseDictionary:(NSDictionary *)data;
++ (id)parseDictionary:(NSDictionary *)data to:(NSString *)destinationObjectType;
 + (NSArray *)parseArray:(NSArray *)data isNewObjects:(BOOL)isNewObjects;
-+ (void)parseReport:(id)report withType:(ATReportType)type name:(NSString *)reportName forManagedObjectWithName:(NSString *)name ID:(NSString *)ID;
-+ (void)parseProjectsData:(NSArray *)data;
-+ (void)parseTasksData:(NSArray *)data forProjectWithID:(NSString *)pID;
-+ (void)parseTeamData:(NSArray *)data forProjectWithID:(NSString *)pID;
+//+ (void)parseReport:(id)report withType:(ATReportType)type name:(NSString *)reportName forManagedObjectWithName:(NSString *)name ID:(NSString *)ID;
+//+ (void)parseProjectsData:(NSArray *)data;
+//+ (void)parseTasksData:(NSArray *)data forProjectWithID:(NSString *)pID;
+//+ (void)parseTeamData:(NSArray *)data forProjectWithID:(NSString *)pID;
 
 @end
