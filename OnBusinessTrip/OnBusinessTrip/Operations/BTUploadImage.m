@@ -39,7 +39,8 @@
     b = [NSString stringWithFormat:@"%@--%@--%@", CRLF, @"-------------V2ymHFg03ehbqgZCaKO6jy", CRLF];
 	[result appendData:[b dataUsingEncoding:NSUTF8StringEncoding]];
 //    NSLog(@"Ress: %@", result);
-	return [super initWithURIPath:@"/photo/profile/224" inputData:result completionHandler:successHandler failureHandler:failureHandler];
+	NSString *path = [NSString stringWithFormat:@"/photo/profile/%@", pID];
+	return [super initWithURIPath:path inputData:result completionHandler:successHandler failureHandler:failureHandler];
 }
 
 @end

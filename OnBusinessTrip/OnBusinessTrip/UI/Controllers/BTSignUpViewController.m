@@ -119,15 +119,15 @@
 - (void)guestSignInSucceeded1 {
 	NSLog(@"sss: %@ - %@", self.profile, self.profile.profileID);
 	
-	BTGetUserProfileOperation *opp = [[BTGetUserProfileOperation alloc] initWithProfileID:[self.profile profileID] successSel:@selector(profileRetrieved:) failureSel:@selector(profileRetrievalFailed:) target:self];
-	[[ATNetworkOperationManager sharedInstance] submitNetworkOperation:opp];
-	
-	BTGetSearchOperation *op = [[BTGetSearchOperation alloc] initWithProfileID:[self.profile profileID] successSel:@selector(searchSucceeded:) failureSel:@selector(searchFailedWithError:) target:self];
-	[[ATNetworkOperationManager sharedInstance] submitNetworkOperation:op];
+//	BTGetUserProfileOperation *opp = [[BTGetUserProfileOperation alloc] initWithProfileID:[self.profile profileID] successSel:@selector(profileRetrieved:) failureSel:@selector(profileRetrievalFailed:) target:self];
+//	[[ATNetworkOperationManager sharedInstance] submitNetworkOperation:opp];
+//	
+//	BTGetSearchOperation *op = [[BTGetSearchOperation alloc] initWithProfileID:[self.profile profileID] successSel:@selector(searchSucceeded:) failureSel:@selector(searchFailedWithError:) target:self];
+//	[[ATNetworkOperationManager sharedInstance] submitNetworkOperation:op];
 
-/*    BTUploadImageOperation *upload = [[BTUploadImageOperation alloc] initWithProfileID:@"11" successSel:@selector(imageUploaded:) failureSel:@selector(imageUploadingFailed:) target:self];
+    BTUploadImageOperation *upload = [[BTUploadImageOperation alloc] initWithProfileID:self.profile.profileID successSel:@selector(imageUploaded:) failureSel:@selector(imageUploadingFailed:) target:self];
 	[[ATNetworkOperationManager sharedInstance] submitNetworkOperation:upload];
-*/	
+	
 }
 
 - (void)profileRetrieved:(Profile *)profile {
