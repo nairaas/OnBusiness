@@ -22,6 +22,7 @@
 #import "ATAPIPutOperation.h"
 //#import "ATAPIBatchOperation.h"
 #import "ATDataDownloadingOperation.h"
+#import "ATAPIFileUploadOperation.h"
 
 #import "ATDataParser.h"
 

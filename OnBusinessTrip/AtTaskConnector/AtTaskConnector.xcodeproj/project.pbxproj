@@ -45,6 +45,8 @@
 		93BDF263151B480E00F78E88 /* ATNetworkOperationManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF25E151B480E00F78E88 /* ATNetworkOperationManagerTests.m */; };
 		93BDF264151B480E00F78E88 /* ATOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF260151B480E00F78E88 /* ATOperationTests.m */; };
 		93BDF265151B480E00F78E88 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BDF262151B480E00F78E88 /* OCMock.framework */; };
+		A5607D7417C131CE00517490 /* ATAPIFileUploadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = A5607D7217C131CD00517490 /* ATAPIFileUploadOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5607D7517C131CE00517490 /* ATAPIFileUploadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A5607D7317C131CE00517490 /* ATAPIFileUploadOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,8 @@
 		93BDF25F151B480E00F78E88 /* ATOperationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATOperationTests.h; sourceTree = "<group>"; };
 		93BDF260151B480E00F78E88 /* ATOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATOperationTests.m; sourceTree = "<group>"; };
 		93BDF262151B480E00F78E88 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMock.framework; sourceTree = "<group>"; };
+		A5607D7217C131CD00517490 /* ATAPIFileUploadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAPIFileUploadOperation.h; sourceTree = "<group>"; };
+		A5607D7317C131CE00517490 /* ATAPIFileUploadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAPIFileUploadOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +241,8 @@
 				93B51CDB156FCD5500698D95 /* ATAvatarLoadingOperation.m */,
 				93974F261669005D00F302BC /* ATDataDownloadingOperation.h */,
 				93974F271669005D00F302BC /* ATDataDownloadingOperation.m */,
+				A5607D7217C131CD00517490 /* ATAPIFileUploadOperation.h */,
+				A5607D7317C131CE00517490 /* ATAPIFileUploadOperation.m */,
 				93BDF134151A173900F78E88 /* Supporting Files */,
 			);
 			path = Operation;
@@ -272,6 +278,7 @@
 				93BDED1F15E75CDD001D6F1F /* ATDataParser.h in Headers */,
 				93974F281669005D00F302BC /* ATDataDownloadingOperation.h in Headers */,
 				5436E4721681C5A400D6339C /* ATAPILogoutOperation.h in Headers */,
+				A5607D7417C131CE00517490 /* ATAPIFileUploadOperation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +392,7 @@
 				93BDED2015E75CDD001D6F1F /* ATDataParser.m in Sources */,
 				93974F291669005D00F302BC /* ATDataDownloadingOperation.m in Sources */,
 				5436E4731681C5A400D6339C /* ATAPILogoutOperation.m in Sources */,
+				A5607D7517C131CE00517490 /* ATAPIFileUploadOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
